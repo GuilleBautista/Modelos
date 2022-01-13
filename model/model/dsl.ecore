@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="var" nsURI="http://www.example.org/var" nsPrefix="var">
+  <eClassifiers xsi:type="ecore:EClass" name="Game"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Player">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Inventory" upperBound="-1"
+        eType="#//Item"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CurrentRoom" lowerBound="1"
+        eType="#//Room"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Stats" upperBound="-1"
+        eType="#//Stat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Room">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="North" eType="#//Door"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="South" eType="#//Door"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="East" eType="#//Door"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="West" eType="#//Door"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Items" upperBound="-1"
+        eType="#//Item"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Npcs" upperBound="-1" eType="#//Npc"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Npc">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Greeting" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Item">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Actions" upperBound="-1"
+        eType="#//Action"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Consequence" eType="#//Action"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Npcs" upperBound="-1" eType="#//Npc"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Player" lowerBound="1"
+        eType="#//Player"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StatAction" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StatName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionNewItem" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="NewItems" upperBound="-1"
+        eType="#//Item"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RoomAction" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Door" eType="#//Door"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Door">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Open" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Next" lowerBound="1" eType="#//Room"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AskAction" eSuperTypes="#//Action"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NewEClass12"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Stat"/>
+</ecore:EPackage>
