@@ -1,9 +1,18 @@
+<img src="https://raw.githubusercontent.com/GuilleBautista/Modelos/main/pics/title.png" style="zoom:15%;" />
+
+
+
 # A DSL to design conversational game
 
 The objective of this project is to facilitate the definition of conversational games and automate their execution. In this type of games, the protagonist goes through a maze made of rooms, where s/he finds objects with which s/he can interact in different ways.
 
 > **Zork** ([http://en.wikipedia.org/wiki/Zork](http://en.wikipedia.org/wiki/Zork)) was one of the first games of this style.
-> 
+
+
+
+<img src="https://raw.githubusercontent.com/GuilleBautista/Modelos/main/pics/zork.jpg" style="zoom:30%;" />
+
+
 
 In this project, you will create a textual DSL to configure conversational games with the characteristics that are detailed below. In addition, you will create a program that, given the description of a game created with the DSL, is responsible for executing it.
 
