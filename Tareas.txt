@@ -1,0 +1,4 @@
+1. Acabar el modelo // Guille
+2. OCL del modelo // Rafa
+3. Crear el Acceleo // Rafa
+4. Python con las clases genérico // Entre los 2
