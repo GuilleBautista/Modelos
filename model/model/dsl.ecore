@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="var" nsURI="http://www.example.org/var" nsPrefix="var">
-  <eClassifiers xsi:type="ecore:EClass" name="Game"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Game">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Player" lowerBound="1"
+        eType="#//Player"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SpawnRoom" lowerBound="1"
+        eType="#//Room"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="WinCondition" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Player">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Inventory" upperBound="-1"
         eType="#//Item"/>
@@ -27,6 +34,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Item">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Actions" upperBound="-1"
         eType="#//Action"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -38,8 +47,8 @@
         eType="#//Player"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StatAction" eSuperTypes="#//Action">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StatName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Stat" lowerBound="1" eType="#//Stat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActionNewItem" eSuperTypes="#//Action">
     <eStructuralFeatures xsi:type="ecore:EReference" name="NewItems" upperBound="-1"
@@ -54,7 +63,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Next" lowerBound="1" eType="#//Room"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AskAction" eSuperTypes="#//Action"/>
-  <eClassifiers xsi:type="ecore:EClass" name="NewEClass12"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Stat"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AskAction" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Question" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Answer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Stat">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
 </ecore:EPackage>
