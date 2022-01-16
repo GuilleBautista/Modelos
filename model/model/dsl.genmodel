@@ -1,60 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
-    modelDirectory="/var/src-gen" creationIcons="false" editDirectory="/var.edit/src-gen"
-    editorDirectory="/var.editor/src-gen" modelPluginID="var" modelName="Var" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
-    copyrightFields="false" operationReflection="true" importOrganizing="true">
-  <foreignModel>var.ecore</foreignModel>
-  <testsDirectory xsi:nil="true"/>
-  <genPackages prefix="Var" disposableProviderFactory="true" ecorePackage="var.ecore#/">
-    <genClasses ecoreClass="var.ecore#//Game"/>
-    <genClasses ecoreClass="var.ecore#//Player">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference var.ecore#//Player/Inventory"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference var.ecore#//Player/CurrentRoom"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference var.ecore#//Player/Stats"/>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ConversationalGame/src" modelPluginID="ConversationalGame"
+    modelName="Dsl" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>dsl.ecore</foreignModel>
+  <genPackages prefix="ConversationalGame" disposableProviderFactory="true" ecorePackage="dsl.ecore#/">
+    <genClasses ecoreClass="dsl.ecore#//Game">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Game/Player"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Game/SpawnRoom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Game/RoomList"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Game/TriggerList"/>
     </genClasses>
-    <genClasses ecoreClass="var.ecore#//Room">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference var.ecore#//Room/North"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference var.ecore#//Room/South"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference var.ecore#//Room/East"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference var.ecore#//Room/West"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute var.ecore#//Room/Id"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference var.ecore#//Room/Items"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference var.ecore#//Room/Npcs"/>
+    <genClasses ecoreClass="dsl.ecore#//Player">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Player/Inventory"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Player/CurrentRoom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Player/Stats"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Player/Dead"/>
     </genClasses>
-    <genClasses ecoreClass="var.ecore#//Npc">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute var.ecore#//Npc/Name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute var.ecore#//Npc/Greeting"/>
+    <genClasses ecoreClass="dsl.ecore#//Room">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Room/North"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Room/South"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Room/East"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Room/West"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Room/Id"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Room/Items"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Room/Npcs"/>
     </genClasses>
-    <genClasses ecoreClass="var.ecore#//Item">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference var.ecore#//Item/Actions"/>
+    <genClasses ecoreClass="dsl.ecore#//Npc">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Npc/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Npc/Greeting"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Npc/Inventory"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Npc/Dead"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Npc/Stats"/>
     </genClasses>
-    <genClasses ecoreClass="var.ecore#//Action">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute var.ecore#//Action/Name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute var.ecore#//Action/Description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute var.ecore#//Action/Message"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference var.ecore#//Action/Consequence"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference var.ecore#//Action/Npcs"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference var.ecore#//Action/Player"/>
+    <genClasses ecoreClass="dsl.ecore#//Item">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Item/Actions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Item/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Item/Id"/>
     </genClasses>
-    <genClasses ecoreClass="var.ecore#//StatAction">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute var.ecore#//StatAction/StatName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute var.ecore#//StatAction/Value"/>
+    <genClasses image="false" ecoreClass="dsl.ecore#//Action">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Action/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Action/Description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Action/Message"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Action/Consequence"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Action/Npcs"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Action/Player"/>
     </genClasses>
-    <genClasses ecoreClass="var.ecore#//ActionNewItem">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference var.ecore#//ActionNewItem/NewItems"/>
+    <genClasses ecoreClass="dsl.ecore#//StatAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//StatAction/Value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//StatAction/Stat"/>
     </genClasses>
-    <genClasses ecoreClass="var.ecore#//RoomAction">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference var.ecore#//RoomAction/Door"/>
+    <genClasses ecoreClass="dsl.ecore#//ActionNewItem">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//ActionNewItem/NewItems"/>
     </genClasses>
-    <genClasses ecoreClass="var.ecore#//Door">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute var.ecore#//Door/Open"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference var.ecore#//Door/Next"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute var.ecore#//Door/Id"/>
+    <genClasses ecoreClass="dsl.ecore#//RoomAction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//RoomAction/Door"/>
     </genClasses>
-    <genClasses ecoreClass="var.ecore#//AskAction"/>
-    <genClasses ecoreClass="var.ecore#//NewEClass12"/>
-    <genClasses ecoreClass="var.ecore#//Stat"/>
+    <genClasses ecoreClass="dsl.ecore#//Door">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Door/Open"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Door/Next"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Door/Id"/>
+    </genClasses>
+    <genClasses ecoreClass="dsl.ecore#//AskAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//AskAction/Question"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//AskAction/Answer"/>
+    </genClasses>
+    <genClasses ecoreClass="dsl.ecore#//Stat">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Stat/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Stat/Value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="dsl.ecore#//Trigger">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Trigger/Triggered"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Trigger/Id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Trigger/Message"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Trigger/EndGame"/>
+    </genClasses>
+    <genClasses ecoreClass="dsl.ecore#//RoomTrigger">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//RoomTrigger/Room"/>
+    </genClasses>
+    <genClasses ecoreClass="dsl.ecore#//ItemTrigger">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//ItemTrigger/Item"/>
+    </genClasses>
+    <genClasses ecoreClass="dsl.ecore#//NpcTrigger">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//NpcTrigger/Npc"/>
+    </genClasses>
+    <genClasses ecoreClass="dsl.ecore#//PlayerTrigger">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//PlayerTrigger/Player"/>
+    </genClasses>
+    <genClasses ecoreClass="dsl.ecore#//ActionTrigger">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//ActionTrigger/Action"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
