@@ -67,13 +67,13 @@ To complete the game, the protagonist must achieve a predefined goal, such as re
 
 ### **The DSL to be developed should allow the configuration of (at least) the following characteristics of a game**:
 
-- [ ]  Rooms of the game and how they are connected.
-- [ ]  Properties of the protagonist (e.g., level of health) and initial value (e.g., level of health = 100).
-- [ ]  Existing objects in the game (e.g., key, box, potion, etc.).
-- [ ]  Admissible actions on each object (e.g., drink potion, open box with key, etc.), indicating what happens when doing it: a text is printed on the screen, a certain characteristic of the protagonist is modified, a new object becomes available, etc.
-- [ ]  Characters in the game (e.g., magician, jester, ghost, etc.), indicating how they greet when entering a room they are in (e.g., "Abracadabra"), as well as their response to questions about specific objects.
-- [ ]  Distribution of the elements of the game in the rooms.
-- [ ]  Conditions for ending the game, in case of success or failure.
+- [x] Rooms of the game and how they are connected.
+- [x] Properties of the protagonist (e.g., level of health) and initial value (e.g., level of health = 100).
+- [x] Existing objects in the game (e.g., key, box, potion, etc.).
+- [x] Admissible actions on each object (e.g., drink potion, open box with key, etc.), indicating what happens when doing it: a text is printed on the screen, a certain characteristic of the protagonist is modified, a new object becomes available, etc.
+- [x] Characters in the game (e.g., magician, jester, ghost, etc.), indicating how they greet when entering a room they are in (e.g., "Abracadabra"), as well as their response to questions about specific objects.
+- [x] Distribution of the elements of the game in the rooms.
+- [x]  Conditions for ending the game, in case of success or failure.
 
 In addition to the DSL, the project needs to include a program that runs the game based on its definition. The interaction with the program should be similar to the listing shown before (but the game itself can be in Spanish). You will probably need to write a code generator to synthesize configuration code to be used by the game engine.
 
