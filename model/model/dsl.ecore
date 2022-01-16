@@ -11,21 +11,21 @@
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Game">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Player" lowerBound="1"
-        eType="#//Player"/>
+        eType="#//Player" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SpawnRoom" lowerBound="1"
         eType="#//Room"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="RoomList" lowerBound="1"
-        upperBound="-1" eType="#//Room"/>
+        upperBound="-1" eType="#//Room" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="TriggerList" upperBound="-1"
-        eType="#//Trigger"/>
+        eType="#//Trigger" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Player">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Inventory" upperBound="-1"
-        eType="#//Item"/>
+        eType="#//Item" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CurrentRoom" lowerBound="1"
         eType="#//Room"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Stats" upperBound="-1"
-        eType="#//Stat"/>
+        eType="#//Stat" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Dead" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
   </eClassifiers>
@@ -34,35 +34,38 @@
       <details key="constraints" value="idUniqueRoom NoSelfNavigation goAndBack atLeastOne"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="idUniqueRoom" value="&#xA;&#x9;&#x9;&#x9;Room::allInstances()->isUnique(Id)&#xA;&#x9;&#x9;"/>
+      <details key="idUniqueRoom" value="&#xA;&#x9;&#x9;&#x9;Room.allInstances()->isUnique(Id)&#xA;&#x9;&#x9;"/>
       <details key="NoSelfNavigation" value="&#xA;&#x9;&#x9;&#x9;let ngo: Boolean = North->collect(d | d.oclAsType(Door).Next.Id)->select(i | i = self.Id)->isEmpty() in&#xA;&#x9;&#x9;&#x9;let sgo: Boolean = South->collect(d | d.oclAsType(Door).Next.Id)->select(i | i = self.Id)->isEmpty() in&#xA;&#x9;&#x9;&#x9;let ego: Boolean = East->collect(d | d.oclAsType(Door).Next.Id)->select(i | i = self.Id)->isEmpty() in&#xA;&#x9;&#x9;&#x9;let wgo: Boolean = West->collect(d | d.oclAsType(Door).Next.Id)->select(i | i = self.Id)->isEmpty() in&#xA;&#x9;&#x9;&#x9;ngo and sgo and ego and wgo"/>
       <details key="goAndBack" value="&#xA;&#x9;&#x9;&#x9;let ngoback: Boolean = North->collect(d | d.oclAsType(Door).Next.South.Next.Id)->select(i | i &lt;> self.Id)->isEmpty() in&#xA;&#x9;&#x9;&#x9;let sgoback: Boolean = South->collect(d | d.oclAsType(Door).Next.North.Next.Id)->select(i | i &lt;> self.Id)->isEmpty() in&#xA;&#x9;&#x9;&#x9;let egoback: Boolean = East->collect(d | d.oclAsType(Door).Next.West.Next.Id)->select(i | i &lt;> self.Id)->isEmpty() in&#xA;&#x9;&#x9;&#x9;let wgoback: Boolean = West->collect(d | d.oclAsType(Door).Next.East.Next.Id)->select(i | i &lt;> self.Id)->isEmpty() in&#xA;&#x9;&#x9;&#x9;ngoback and sgoback and egoback and wgoback"/>
       <details key="atLeastOne" value="&#xA;&#x9;&#x9;&#x9;let ndoor: Integer = North->collect(d | d.oclAsType(Door))->size() in&#xA;&#x9;&#x9;&#x9;let sdoor: Integer = South->collect(d | d.oclAsType(Door))->size() in&#xA;&#x9;&#x9;&#x9;let edoor: Integer = East->collect(d | d.oclAsType(Door))->size() in&#xA;&#x9;&#x9;&#x9;let wdoor: Integer = West->collect(d | d.oclAsType(Door))->size() in&#xA;&#x9;&#x9;&#x9;ndoor + sdoor + edoor + wdoor >= 1"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="North" eType="#//Door"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="South" eType="#//Door"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="East" eType="#//Door"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="West" eType="#//Door"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="North" eType="#//Door"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="South" eType="#//Door"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="East" eType="#//Door" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="West" eType="#//Door" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Items" upperBound="-1"
-        eType="#//Item"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Npcs" upperBound="-1" eType="#//Npc"/>
+        eType="#//Item" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Npcs" upperBound="-1" eType="#//Npc"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Npc">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Greeting" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Inventory" upperBound="-1"
-        eType="#//Item"/>
+        eType="#//Item" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Dead" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Stats" upperBound="-1"
-        eType="#//Stat"/>
+        eType="#//Stat" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Item">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="idUniqueItem"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="idUniqueItem" value="&#xA;&#x9;&#x9;&#x9;Item::allInstances()->isUnique(Id)&#xA;&#x9;&#x9;"/>
+      <details key="idUniqueItem" value="&#xA;&#x9;&#x9;&#x9;Item.allInstances()->isUnique(Id)&#xA;&#x9;&#x9;"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Actions" upperBound="-1"
         eType="#//Action"/>
@@ -94,7 +97,7 @@
       <details key="constraints" value="idUniqueDoor"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="idUniqueDoor" value="&#xA;&#x9;&#x9;&#x9;Door::allInstances()->isUnique(Id)&#xA;&#x9;&#x9;"/>
+      <details key="idUniqueDoor" value="&#xA;&#x9;&#x9;&#x9;Door.allInstances()->isUnique(Id)&#xA;&#x9;&#x9;"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Open" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
@@ -114,7 +117,7 @@
       <details key="constraints" value="idUniqueDoor"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="idUniqueDoor" value="&#xA;&#x9;&#x9;&#x9;Door::allInstances()->isUnique(Id)&#xA;&#x9;&#x9;"/>
+      <details key="idUniqueDoor" value="&#xA;&#x9;&#x9;&#x9;Door.allInstances()->isUnique(Id)&#xA;&#x9;&#x9;"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Triggered" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
