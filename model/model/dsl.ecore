@@ -19,15 +19,28 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="TriggerList" upperBound="-1"
         eType="#//Trigger" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Player">
+  <eClassifiers xsi:type="ecore:EClass" name="Character">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Inventory" upperBound="-1"
         eType="#//Item" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="CurrentRoom" lowerBound="1"
-        eType="#//Room"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Stats" upperBound="-1"
         eType="#//Stat" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Dead" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Actions" ordered="false"
+        upperBound="-1" eType="#//CharacterAction">
+      <eAnnotations source="http://www.eclipse.org/OCL/Collection">
+        <details key="nullFree" value="false"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Player" eSuperTypes="#//Character">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CurrentRoom" lowerBound="1"
+        eType="#//Room"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Npc" eSuperTypes="#//Character">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FirstEncounterTrigger"
+        eType="#//RoomTrigger"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Room">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -51,15 +64,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Npcs" upperBound="-1" eType="#//Npc"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Npc">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Greeting" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Inventory" upperBound="-1"
-        eType="#//Item" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Dead" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Stats" upperBound="-1"
-        eType="#//Stat" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Item">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="idUniqueItem"/>
@@ -68,28 +72,38 @@
       <details key="idUniqueItem" value="&#xA;&#x9;&#x9;&#x9;Item.allInstances()->isUnique(Id)&#xA;&#x9;&#x9;"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Actions" upperBound="-1"
-        eType="#//Action"/>
+        eType="#//ItemAction"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="ItemAction">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Consequence" eType="#//Action"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Npcs" upperBound="-1" eType="#//Npc"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Player" lowerBound="1"
-        eType="#//Player"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Consequence" eType="#//Consequence"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StatAction" eSuperTypes="#//Action">
+  <eClassifiers xsi:type="ecore:EClass" name="CharacterAction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Consequence" eType="#//Consequence"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StatConsequence" eSuperTypes="#//Consequence">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Stat" lowerBound="1" eType="#//Stat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Character" lowerBound="1"
+        eType="#//Character"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ActionNewItem" eSuperTypes="#//Action">
+  <eClassifiers xsi:type="ecore:EClass" name="ConsequenceGiveItem" eSuperTypes="#//Consequence">
     <eStructuralFeatures xsi:type="ecore:EReference" name="NewItems" upperBound="-1"
         eType="#//Item"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Character" lowerBound="1"
+        eType="#//Character"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RoomAction" eSuperTypes="#//Action">
+  <eClassifiers xsi:type="ecore:EClass" name="ConsequenceSpawnItem" eSuperTypes="#//Consequence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="NewItems" upperBound="-1"
+        eType="#//Item"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Room" lowerBound="1" eType="#//Room"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RoomConsequence" eSuperTypes="#//Consequence">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Door" eType="#//Door"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Door">
@@ -104,7 +118,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Next" lowerBound="1" eType="#//Room"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AskAction" eSuperTypes="#//Action">
+  <eClassifiers xsi:type="ecore:EClass" name="AnswerConsequence" eSuperTypes="#//Consequence">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Question" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Answer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -112,7 +126,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Trigger" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Trigger">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="idUniqueDoor"/>
     </eAnnotations>
@@ -122,9 +136,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Triggered" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="EndGame" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Consequences" ordered="false"
+        upperBound="-1" eType="#//Consequence">
+      <eAnnotations source="http://www.eclipse.org/OCL/Collection">
+        <details key="nullFree" value="false"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RoomTrigger" eSuperTypes="#//Trigger">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Room" eType="#//Room"/>
@@ -138,7 +157,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="PlayerTrigger" eSuperTypes="#//Trigger">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Player" eType="#//Player"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ActionTrigger" eSuperTypes="#//Trigger">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Action" eType="#//Action"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Consequence">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Consequence" eType="#//Consequence"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ItemAction" eType="#//ItemAction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CharacterAction" eType="#//CharacterAction"/>
   </eClassifiers>
 </ecore:EPackage>
