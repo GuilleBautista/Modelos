@@ -3,9 +3,11 @@
 package conversationalGame.impl;
 
 import conversationalGame.ConversationalGamePackage;
-import conversationalGame.Player;
-import conversationalGame.Room;
+import conversationalGame.Door;
+import conversationalGame.RoomConsequence;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -13,34 +15,34 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Player</b></em>'.
+ * An implementation of the model object '<em><b>Room Consequence</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link conversationalGame.impl.PlayerImpl#getCurrentRoom <em>Current Room</em>}</li>
+ *   <li>{@link conversationalGame.impl.RoomConsequenceImpl#getDoor <em>Door</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PlayerImpl extends CharacterImpl implements Player {
+public class RoomConsequenceImpl extends ConsequenceImpl implements RoomConsequence {
 	/**
-	 * The cached value of the '{@link #getCurrentRoom() <em>Current Room</em>}' reference.
+	 * The cached value of the '{@link #getDoor() <em>Door</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCurrentRoom()
+	 * @see #getDoor()
 	 * @generated
 	 * @ordered
 	 */
-	protected Room currentRoom;
+	protected Door door;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PlayerImpl() {
+	protected RoomConsequenceImpl() {
 		super();
 	}
 
@@ -51,7 +53,7 @@ public class PlayerImpl extends CharacterImpl implements Player {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ConversationalGamePackage.Literals.PLAYER;
+		return ConversationalGamePackage.Literals.ROOM_CONSEQUENCE;
 	}
 
 	/**
@@ -59,16 +61,16 @@ public class PlayerImpl extends CharacterImpl implements Player {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Room getCurrentRoom() {
-		if (currentRoom != null && currentRoom.eIsProxy()) {
-			InternalEObject oldCurrentRoom = (InternalEObject)currentRoom;
-			currentRoom = (Room)eResolveProxy(oldCurrentRoom);
-			if (currentRoom != oldCurrentRoom) {
+	public Door getDoor() {
+		if (door != null && door.eIsProxy()) {
+			InternalEObject oldDoor = (InternalEObject)door;
+			door = (Door)eResolveProxy(oldDoor);
+			if (door != oldDoor) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ConversationalGamePackage.PLAYER__CURRENT_ROOM, oldCurrentRoom, currentRoom));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ConversationalGamePackage.ROOM_CONSEQUENCE__DOOR, oldDoor, door));
 			}
 		}
-		return currentRoom;
+		return door;
 	}
 
 	/**
@@ -76,8 +78,8 @@ public class PlayerImpl extends CharacterImpl implements Player {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Room basicGetCurrentRoom() {
-		return currentRoom;
+	public Door basicGetDoor() {
+		return door;
 	}
 
 	/**
@@ -85,11 +87,11 @@ public class PlayerImpl extends CharacterImpl implements Player {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCurrentRoom(Room newCurrentRoom) {
-		Room oldCurrentRoom = currentRoom;
-		currentRoom = newCurrentRoom;
+	public void setDoor(Door newDoor) {
+		Door oldDoor = door;
+		door = newDoor;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConversationalGamePackage.PLAYER__CURRENT_ROOM, oldCurrentRoom, currentRoom));
+			eNotify(new ENotificationImpl(this, Notification.SET, ConversationalGamePackage.ROOM_CONSEQUENCE__DOOR, oldDoor, door));
 	}
 
 	/**
@@ -100,9 +102,9 @@ public class PlayerImpl extends CharacterImpl implements Player {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ConversationalGamePackage.PLAYER__CURRENT_ROOM:
-				if (resolve) return getCurrentRoom();
-				return basicGetCurrentRoom();
+			case ConversationalGamePackage.ROOM_CONSEQUENCE__DOOR:
+				if (resolve) return getDoor();
+				return basicGetDoor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -112,12 +114,11 @@ public class PlayerImpl extends CharacterImpl implements Player {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ConversationalGamePackage.PLAYER__CURRENT_ROOM:
-				setCurrentRoom((Room)newValue);
+			case ConversationalGamePackage.ROOM_CONSEQUENCE__DOOR:
+				setDoor((Door)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -131,8 +132,8 @@ public class PlayerImpl extends CharacterImpl implements Player {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ConversationalGamePackage.PLAYER__CURRENT_ROOM:
-				setCurrentRoom((Room)null);
+			case ConversationalGamePackage.ROOM_CONSEQUENCE__DOOR:
+				setDoor((Door)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -146,10 +147,10 @@ public class PlayerImpl extends CharacterImpl implements Player {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ConversationalGamePackage.PLAYER__CURRENT_ROOM:
-				return currentRoom != null;
+			case ConversationalGamePackage.ROOM_CONSEQUENCE__DOOR:
+				return door != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //PlayerImpl
+} //RoomConsequenceImpl

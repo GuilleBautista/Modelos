@@ -2,11 +2,11 @@
  */
 package conversationalGame.impl;
 
-import conversationalGame.Action;
 import conversationalGame.ConversationalGamePackage;
 import conversationalGame.ConversationalGameTables;
 import conversationalGame.Item;
 
+import conversationalGame.ItemAction;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -69,7 +69,7 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Action> actions;
+	protected EList<ItemAction> actions;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -135,9 +135,9 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Action> getActions() {
+	public EList<ItemAction> getActions() {
 		if (actions == null) {
-			actions = new EObjectResolvingEList<Action>(Action.class, this, ConversationalGamePackage.ITEM__ACTIONS);
+			actions = new EObjectResolvingEList<ItemAction>(ItemAction.class, this, ConversationalGamePackage.ITEM__ACTIONS);
 		}
 		return actions;
 	}
@@ -284,7 +284,7 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 		switch (featureID) {
 			case ConversationalGamePackage.ITEM__ACTIONS:
 				getActions().clear();
-				getActions().addAll((Collection<? extends Action>)newValue);
+				getActions().addAll((Collection<? extends ItemAction>)newValue);
 				return;
 			case ConversationalGamePackage.ITEM__NAME:
 				setName((String)newValue);

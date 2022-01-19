@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface Item extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Actions</b></em>' reference list.
-	 * The list contents are of type {@link conversationalGame.Action}.
+	 * The list contents are of type {@link conversationalGame.ItemAction}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Actions</em>' reference list.
@@ -38,7 +38,7 @@ public interface Item extends EObject {
 	 * @model
 	 * @generated
 	 */
-	EList<Action> getActions();
+	EList<ItemAction> getActions();
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

@@ -2,6 +2,27 @@
  */
 package conversationalGame.util;
 
+import conversationalGame.AnswerConsequence;
+import conversationalGame.CharacterAction;
+import conversationalGame.Consequence;
+import conversationalGame.ConsequenceGiveItem;
+import conversationalGame.ConsequenceSpawnItem;
+import conversationalGame.ConversationalGamePackage;
+import conversationalGame.Door;
+import conversationalGame.Game;
+import conversationalGame.Item;
+import conversationalGame.ItemAction;
+import conversationalGame.ItemTrigger;
+import conversationalGame.Npc;
+import conversationalGame.NpcTrigger;
+import conversationalGame.Player;
+import conversationalGame.PlayerTrigger;
+import conversationalGame.Room;
+import conversationalGame.RoomConsequence;
+import conversationalGame.RoomTrigger;
+import conversationalGame.Stat;
+import conversationalGame.StatConsequence;
+import conversationalGame.Trigger;
 import conversationalGame.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -72,9 +93,23 @@ public class ConversationalGameSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ConversationalGamePackage.CHARACTER: {
+				conversationalGame.Character character = (conversationalGame.Character)theEObject;
+				T result = caseCharacter(character);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ConversationalGamePackage.PLAYER: {
 				Player player = (Player)theEObject;
 				T result = casePlayer(player);
+				if (result == null) result = caseCharacter(player);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ConversationalGamePackage.NPC: {
+				Npc npc = (Npc)theEObject;
+				T result = caseNpc(npc);
+				if (result == null) result = caseCharacter(npc);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -84,42 +119,49 @@ public class ConversationalGameSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ConversationalGamePackage.NPC: {
-				Npc npc = (Npc)theEObject;
-				T result = caseNpc(npc);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ConversationalGamePackage.ITEM: {
 				Item item = (Item)theEObject;
 				T result = caseItem(item);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ConversationalGamePackage.ACTION: {
-				Action action = (Action)theEObject;
-				T result = caseAction(action);
+			case ConversationalGamePackage.ITEM_ACTION: {
+				ItemAction itemAction = (ItemAction)theEObject;
+				T result = caseItemAction(itemAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ConversationalGamePackage.STAT_ACTION: {
-				StatAction statAction = (StatAction)theEObject;
-				T result = caseStatAction(statAction);
-				if (result == null) result = caseAction(statAction);
+			case ConversationalGamePackage.CHARACTER_ACTION: {
+				CharacterAction characterAction = (CharacterAction)theEObject;
+				T result = caseCharacterAction(characterAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ConversationalGamePackage.ACTION_NEW_ITEM: {
-				ActionNewItem actionNewItem = (ActionNewItem)theEObject;
-				T result = caseActionNewItem(actionNewItem);
-				if (result == null) result = caseAction(actionNewItem);
+			case ConversationalGamePackage.STAT_CONSEQUENCE: {
+				StatConsequence statConsequence = (StatConsequence)theEObject;
+				T result = caseStatConsequence(statConsequence);
+				if (result == null) result = caseConsequence(statConsequence);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ConversationalGamePackage.ROOM_ACTION: {
-				RoomAction roomAction = (RoomAction)theEObject;
-				T result = caseRoomAction(roomAction);
-				if (result == null) result = caseAction(roomAction);
+			case ConversationalGamePackage.CONSEQUENCE_GIVE_ITEM: {
+				ConsequenceGiveItem consequenceGiveItem = (ConsequenceGiveItem)theEObject;
+				T result = caseConsequenceGiveItem(consequenceGiveItem);
+				if (result == null) result = caseConsequence(consequenceGiveItem);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ConversationalGamePackage.CONSEQUENCE_SPAWN_ITEM: {
+				ConsequenceSpawnItem consequenceSpawnItem = (ConsequenceSpawnItem)theEObject;
+				T result = caseConsequenceSpawnItem(consequenceSpawnItem);
+				if (result == null) result = caseConsequence(consequenceSpawnItem);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ConversationalGamePackage.ROOM_CONSEQUENCE: {
+				RoomConsequence roomConsequence = (RoomConsequence)theEObject;
+				T result = caseRoomConsequence(roomConsequence);
+				if (result == null) result = caseConsequence(roomConsequence);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -129,10 +171,10 @@ public class ConversationalGameSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ConversationalGamePackage.ASK_ACTION: {
-				AskAction askAction = (AskAction)theEObject;
-				T result = caseAskAction(askAction);
-				if (result == null) result = caseAction(askAction);
+			case ConversationalGamePackage.ANSWER_CONSEQUENCE: {
+				AnswerConsequence answerConsequence = (AnswerConsequence)theEObject;
+				T result = caseAnswerConsequence(answerConsequence);
+				if (result == null) result = caseConsequence(answerConsequence);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -176,10 +218,9 @@ public class ConversationalGameSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ConversationalGamePackage.ACTION_TRIGGER: {
-				ActionTrigger actionTrigger = (ActionTrigger)theEObject;
-				T result = caseActionTrigger(actionTrigger);
-				if (result == null) result = caseTrigger(actionTrigger);
+			case ConversationalGamePackage.CONSEQUENCE: {
+				Consequence consequence = (Consequence)theEObject;
+				T result = caseConsequence(consequence);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -199,6 +240,21 @@ public class ConversationalGameSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGame(Game object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Character</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Character</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCharacter(conversationalGame.Character object) {
 		return null;
 	}
 
@@ -263,62 +319,92 @@ public class ConversationalGameSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Item Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Action</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Item Action</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAction(Action object) {
+	public T caseItemAction(ItemAction object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Stat Action</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Character Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Stat Action</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Character Action</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseStatAction(StatAction object) {
+	public T caseCharacterAction(CharacterAction object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Action New Item</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Stat Consequence</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Action New Item</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Stat Consequence</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseActionNewItem(ActionNewItem object) {
+	public T caseStatConsequence(StatConsequence object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Room Action</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Consequence Give Item</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Room Action</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Consequence Give Item</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRoomAction(RoomAction object) {
+	public T caseConsequenceGiveItem(ConsequenceGiveItem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Consequence Spawn Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Consequence Spawn Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConsequenceSpawnItem(ConsequenceSpawnItem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Room Consequence</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Room Consequence</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRoomConsequence(RoomConsequence object) {
 		return null;
 	}
 
@@ -338,17 +424,17 @@ public class ConversationalGameSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ask Action</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Answer Consequence</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ask Action</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Answer Consequence</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAskAction(AskAction object) {
+	public T caseAnswerConsequence(AnswerConsequence object) {
 		return null;
 	}
 
@@ -443,17 +529,17 @@ public class ConversationalGameSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Action Trigger</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Consequence</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Action Trigger</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Consequence</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseActionTrigger(ActionTrigger object) {
+	public T caseConsequence(Consequence object) {
 		return null;
 	}
 

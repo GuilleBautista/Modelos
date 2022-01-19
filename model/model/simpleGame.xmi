@@ -1,27 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<conversationalGame:Game xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:conversationalGame="http://www.example.org/var" xsi:schemaLocation="http://www.example.org/var dsl.ecore" SpawnRoom="//@RoomList.0">
+<conversationalGame:Game
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:conversationalGame="http://www.example.org/var"
+    xsi:schemaLocation="http://www.example.org/var dsl.ecore"
+    SpawnRoom="//@RoomList.0"
+    Greeting="Hola amijos">
   <Player CurrentRoom="//@RoomList.0"/>
-  <RoomList Id="OwnRoom">
-    <East Next="//@RoomList.1" Id="OwnRoomToHouse"/>
+  <RoomList
+      Id="OwnRoom">
+    <East Next="//@RoomList.1"
+        Id="OwnRoomToHouse"/>
   </RoomList>
-  <RoomList Id="House">
-    <East Next="//@RoomList.2" Id="HouseToPalletTown"/>
-    <West Next="//@RoomList.0" Id="HouseToOwnRoom"/>
-    <Items Name="Orange Juice" Id="i1"/>
-    <Npcs Name="Mom" Greeting="Hi dear! Good morning!"/>
+  <RoomList
+      Id="House">
+    <East Next="//@RoomList.2"
+        Id="HouseToPalletTown"/>
+    <West Next="//@RoomList.0"
+        Id="HouseToOwnRoom"/>
+    <Items Name="Orange Juice"
+        Id="i1"/>
+    <Npcs Name="Mom"/>
   </RoomList>
-  <RoomList Id="PalletTown">
-    <North Open="false" Next="//@RoomList.4" Id="PalletTownToWildArea"/>
-    <East Next="//@RoomList.3" Id="PalletTownToOakLab"/>
-    <West Next="//@RoomList.1" Id="PalletTownToHouse"/>
+  <RoomList
+      Id="PalletTown">
+    <North Open="false"
+        Next="//@RoomList.4"
+        Id="PalletTownToWildArea"/>
+    <East Next="//@RoomList.3"
+        Id="PalletTownToOakLab"/>
+    <West Next="//@RoomList.1"
+        Id="PalletTownToHouse"/>
   </RoomList>
-  <RoomList Id="OakLab">
-    <West Next="//@RoomList.2" Id="OakLabToPalletTown"/>
-    <Npcs Name="OakProfessor" Greeting="Oh my god.. I wondered where I forgot my glasses..."/>
+  <RoomList
+      Id="OakLab">
+    <West Next="//@RoomList.2"
+        Id="OakLabToPalletTown"/>
+    <Npcs Name="OakProfessor"/>
   </RoomList>
-  <RoomList Id="WildArea">
-    <South Next="//@RoomList.2" Id="WildAreaToPalletTown"/>
-    <Items Name="Pokeballs" Id="Pokeballs"/>
-    <Npcs Name="Pikachu" Greeting="Pika, Pika!"/>
+  <RoomList
+      Id="WildArea">
+    <South Next="//@RoomList.2"
+        Id="WildAreaToPalletTown"/>
+    <Items Name="Pokeballs"
+        Id="Pokeballs"/>
+    <Npcs Name="Pikachu"/>
   </RoomList>
 </conversationalGame:Game>

@@ -2,25 +2,27 @@
  */
 package conversationalGame.impl;
 
-import conversationalGame.Action;
-import conversationalGame.ActionNewItem;
-import conversationalGame.ActionTrigger;
-import conversationalGame.AskAction;
+import conversationalGame.AnswerConsequence;
+import conversationalGame.CharacterAction;
+import conversationalGame.Consequence;
+import conversationalGame.ConsequenceGiveItem;
+import conversationalGame.ConsequenceSpawnItem;
 import conversationalGame.ConversationalGameFactory;
 import conversationalGame.ConversationalGamePackage;
 import conversationalGame.Door;
 import conversationalGame.Game;
 import conversationalGame.Item;
+import conversationalGame.ItemAction;
 import conversationalGame.ItemTrigger;
 import conversationalGame.Npc;
 import conversationalGame.NpcTrigger;
 import conversationalGame.Player;
 import conversationalGame.PlayerTrigger;
 import conversationalGame.Room;
-import conversationalGame.RoomAction;
+import conversationalGame.RoomConsequence;
 import conversationalGame.RoomTrigger;
 import conversationalGame.Stat;
-import conversationalGame.StatAction;
+import conversationalGame.StatConsequence;
 import conversationalGame.Trigger;
 
 import conversationalGame.util.ConversationalGameValidator;
@@ -48,6 +50,13 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * @generated
 	 */
 	private EClass gameEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass characterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -82,28 +91,42 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass actionEClass = null;
+	private EClass itemActionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass statActionEClass = null;
+	private EClass characterActionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass actionNewItemEClass = null;
+	private EClass statConsequenceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass roomActionEClass = null;
+	private EClass consequenceGiveItemEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass consequenceSpawnItemEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass roomConsequenceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,7 +140,7 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass askActionEClass = null;
+	private EClass answerConsequenceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -166,7 +189,7 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass actionTriggerEClass = null;
+	private EClass consequenceEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -288,6 +311,51 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCharacter() {
+		return characterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCharacter_Inventory() {
+		return (EReference)characterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCharacter_Stats() {
+		return (EReference)characterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCharacter_Dead() {
+		return (EAttribute)characterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCharacter_Actions() {
+		return (EReference)characterEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPlayer() {
 		return playerEClass;
 	}
@@ -297,35 +365,8 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPlayer_Inventory() {
-		return (EReference)playerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getPlayer_CurrentRoom() {
-		return (EReference)playerEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPlayer_Stats() {
-		return (EReference)playerEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlayer_Dead() {
-		return (EAttribute)playerEClass.getEStructuralFeatures().get(3);
+		return (EReference)playerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -459,35 +500,8 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getNpc_Greeting() {
-		return (EAttribute)npcEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getNpc_Inventory() {
-		return (EReference)npcEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNpc_Dead() {
-		return (EAttribute)npcEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getNpc_Stats() {
-		return (EReference)npcEClass.getEStructuralFeatures().get(4);
+	public EReference getNpc_FirstEncounterTrigger() {
+		return (EReference)npcEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -540,8 +554,8 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAction() {
-		return actionEClass;
+	public EClass getItemAction() {
+		return itemActionEClass;
 	}
 
 	/**
@@ -549,8 +563,8 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAction_Name() {
-		return (EAttribute)actionEClass.getEStructuralFeatures().get(0);
+	public EAttribute getItemAction_Name() {
+		return (EAttribute)itemActionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -558,8 +572,8 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAction_Description() {
-		return (EAttribute)actionEClass.getEStructuralFeatures().get(1);
+	public EAttribute getItemAction_Description() {
+		return (EAttribute)itemActionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -567,8 +581,8 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAction_Message() {
-		return (EAttribute)actionEClass.getEStructuralFeatures().get(2);
+	public EReference getItemAction_Consequence() {
+		return (EReference)itemActionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -576,8 +590,8 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAction_Consequence() {
-		return (EReference)actionEClass.getEStructuralFeatures().get(3);
+	public EClass getCharacterAction() {
+		return characterActionEClass;
 	}
 
 	/**
@@ -585,8 +599,8 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAction_Npcs() {
-		return (EReference)actionEClass.getEStructuralFeatures().get(4);
+	public EAttribute getCharacterAction_Name() {
+		return (EAttribute)characterActionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -594,8 +608,8 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAction_Player() {
-		return (EReference)actionEClass.getEStructuralFeatures().get(5);
+	public EAttribute getCharacterAction_Description() {
+		return (EAttribute)characterActionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -603,8 +617,8 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getStatAction() {
-		return statActionEClass;
+	public EReference getCharacterAction_Consequence() {
+		return (EReference)characterActionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -612,8 +626,8 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStatAction_Value() {
-		return (EAttribute)statActionEClass.getEStructuralFeatures().get(0);
+	public EClass getStatConsequence() {
+		return statConsequenceEClass;
 	}
 
 	/**
@@ -621,8 +635,8 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getStatAction_Stat() {
-		return (EReference)statActionEClass.getEStructuralFeatures().get(1);
+	public EAttribute getStatConsequence_Value() {
+		return (EAttribute)statConsequenceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -630,8 +644,8 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getActionNewItem() {
-		return actionNewItemEClass;
+	public EReference getStatConsequence_Stat() {
+		return (EReference)statConsequenceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -639,8 +653,8 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getActionNewItem_NewItems() {
-		return (EReference)actionNewItemEClass.getEStructuralFeatures().get(0);
+	public EReference getStatConsequence_Character() {
+		return (EReference)statConsequenceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -648,8 +662,8 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRoomAction() {
-		return roomActionEClass;
+	public EClass getConsequenceGiveItem() {
+		return consequenceGiveItemEClass;
 	}
 
 	/**
@@ -657,8 +671,62 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRoomAction_Door() {
-		return (EReference)roomActionEClass.getEStructuralFeatures().get(0);
+	public EReference getConsequenceGiveItem_NewItems() {
+		return (EReference)consequenceGiveItemEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsequenceGiveItem_Character() {
+		return (EReference)consequenceGiveItemEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConsequenceSpawnItem() {
+		return consequenceSpawnItemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsequenceSpawnItem_NewItems() {
+		return (EReference)consequenceSpawnItemEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsequenceSpawnItem_Room() {
+		return (EReference)consequenceSpawnItemEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRoomConsequence() {
+		return roomConsequenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRoomConsequence_Door() {
+		return (EReference)roomConsequenceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -711,8 +779,8 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAskAction() {
-		return askActionEClass;
+	public EClass getAnswerConsequence() {
+		return answerConsequenceEClass;
 	}
 
 	/**
@@ -720,8 +788,8 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAskAction_Question() {
-		return (EAttribute)askActionEClass.getEStructuralFeatures().get(0);
+	public EAttribute getAnswerConsequence_Question() {
+		return (EAttribute)answerConsequenceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -729,8 +797,8 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAskAction_Answer() {
-		return (EAttribute)askActionEClass.getEStructuralFeatures().get(1);
+	public EAttribute getAnswerConsequence_Answer() {
+		return (EAttribute)answerConsequenceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -792,7 +860,7 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTrigger_Message() {
+	public EAttribute getTrigger_EndGame() {
 		return (EAttribute)triggerEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -801,8 +869,8 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTrigger_EndGame() {
-		return (EAttribute)triggerEClass.getEStructuralFeatures().get(3);
+	public EReference getTrigger_Consequences() {
+		return (EReference)triggerEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -891,8 +959,8 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getActionTrigger() {
-		return actionTriggerEClass;
+	public EClass getConsequence() {
+		return consequenceEClass;
 	}
 
 	/**
@@ -900,8 +968,35 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getActionTrigger_Action() {
-		return (EReference)actionTriggerEClass.getEStructuralFeatures().get(0);
+	public EAttribute getConsequence_Message() {
+		return (EAttribute)consequenceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsequence_Consequence() {
+		return (EReference)consequenceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsequence_ItemAction() {
+		return (EReference)consequenceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConsequence_CharacterAction() {
+		return (EReference)consequenceEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -938,11 +1033,18 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 		createEReference(gameEClass, GAME__ROOM_LIST);
 		createEReference(gameEClass, GAME__TRIGGER_LIST);
 
+		characterEClass = createEClass(CHARACTER);
+		createEReference(characterEClass, CHARACTER__INVENTORY);
+		createEReference(characterEClass, CHARACTER__STATS);
+		createEAttribute(characterEClass, CHARACTER__DEAD);
+		createEReference(characterEClass, CHARACTER__ACTIONS);
+
 		playerEClass = createEClass(PLAYER);
-		createEReference(playerEClass, PLAYER__INVENTORY);
 		createEReference(playerEClass, PLAYER__CURRENT_ROOM);
-		createEReference(playerEClass, PLAYER__STATS);
-		createEAttribute(playerEClass, PLAYER__DEAD);
+
+		npcEClass = createEClass(NPC);
+		createEAttribute(npcEClass, NPC__NAME);
+		createEReference(npcEClass, NPC__FIRST_ENCOUNTER_TRIGGER);
 
 		roomEClass = createEClass(ROOM);
 		createEReference(roomEClass, ROOM__NORTH);
@@ -957,36 +1059,37 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 		createEOperation(roomEClass, ROOM___AT_LEAST_ONE__DIAGNOSTICCHAIN_MAP);
 		createEOperation(roomEClass, ROOM___GO_AND_BACK__DIAGNOSTICCHAIN_MAP);
 
-		npcEClass = createEClass(NPC);
-		createEAttribute(npcEClass, NPC__NAME);
-		createEAttribute(npcEClass, NPC__GREETING);
-		createEReference(npcEClass, NPC__INVENTORY);
-		createEAttribute(npcEClass, NPC__DEAD);
-		createEReference(npcEClass, NPC__STATS);
-
 		itemEClass = createEClass(ITEM);
 		createEReference(itemEClass, ITEM__ACTIONS);
 		createEAttribute(itemEClass, ITEM__NAME);
 		createEAttribute(itemEClass, ITEM__ID);
 		createEOperation(itemEClass, ITEM___ID_UNIQUE_ITEM__DIAGNOSTICCHAIN_MAP);
 
-		actionEClass = createEClass(ACTION);
-		createEAttribute(actionEClass, ACTION__NAME);
-		createEAttribute(actionEClass, ACTION__DESCRIPTION);
-		createEAttribute(actionEClass, ACTION__MESSAGE);
-		createEReference(actionEClass, ACTION__CONSEQUENCE);
-		createEReference(actionEClass, ACTION__NPCS);
-		createEReference(actionEClass, ACTION__PLAYER);
+		itemActionEClass = createEClass(ITEM_ACTION);
+		createEAttribute(itemActionEClass, ITEM_ACTION__NAME);
+		createEAttribute(itemActionEClass, ITEM_ACTION__DESCRIPTION);
+		createEReference(itemActionEClass, ITEM_ACTION__CONSEQUENCE);
 
-		statActionEClass = createEClass(STAT_ACTION);
-		createEAttribute(statActionEClass, STAT_ACTION__VALUE);
-		createEReference(statActionEClass, STAT_ACTION__STAT);
+		characterActionEClass = createEClass(CHARACTER_ACTION);
+		createEAttribute(characterActionEClass, CHARACTER_ACTION__NAME);
+		createEAttribute(characterActionEClass, CHARACTER_ACTION__DESCRIPTION);
+		createEReference(characterActionEClass, CHARACTER_ACTION__CONSEQUENCE);
 
-		actionNewItemEClass = createEClass(ACTION_NEW_ITEM);
-		createEReference(actionNewItemEClass, ACTION_NEW_ITEM__NEW_ITEMS);
+		statConsequenceEClass = createEClass(STAT_CONSEQUENCE);
+		createEAttribute(statConsequenceEClass, STAT_CONSEQUENCE__VALUE);
+		createEReference(statConsequenceEClass, STAT_CONSEQUENCE__STAT);
+		createEReference(statConsequenceEClass, STAT_CONSEQUENCE__CHARACTER);
 
-		roomActionEClass = createEClass(ROOM_ACTION);
-		createEReference(roomActionEClass, ROOM_ACTION__DOOR);
+		consequenceGiveItemEClass = createEClass(CONSEQUENCE_GIVE_ITEM);
+		createEReference(consequenceGiveItemEClass, CONSEQUENCE_GIVE_ITEM__NEW_ITEMS);
+		createEReference(consequenceGiveItemEClass, CONSEQUENCE_GIVE_ITEM__CHARACTER);
+
+		consequenceSpawnItemEClass = createEClass(CONSEQUENCE_SPAWN_ITEM);
+		createEReference(consequenceSpawnItemEClass, CONSEQUENCE_SPAWN_ITEM__NEW_ITEMS);
+		createEReference(consequenceSpawnItemEClass, CONSEQUENCE_SPAWN_ITEM__ROOM);
+
+		roomConsequenceEClass = createEClass(ROOM_CONSEQUENCE);
+		createEReference(roomConsequenceEClass, ROOM_CONSEQUENCE__DOOR);
 
 		doorEClass = createEClass(DOOR);
 		createEAttribute(doorEClass, DOOR__OPEN);
@@ -994,9 +1097,9 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 		createEAttribute(doorEClass, DOOR__ID);
 		createEOperation(doorEClass, DOOR___ID_UNIQUE_DOOR__DIAGNOSTICCHAIN_MAP);
 
-		askActionEClass = createEClass(ASK_ACTION);
-		createEAttribute(askActionEClass, ASK_ACTION__QUESTION);
-		createEAttribute(askActionEClass, ASK_ACTION__ANSWER);
+		answerConsequenceEClass = createEClass(ANSWER_CONSEQUENCE);
+		createEAttribute(answerConsequenceEClass, ANSWER_CONSEQUENCE__QUESTION);
+		createEAttribute(answerConsequenceEClass, ANSWER_CONSEQUENCE__ANSWER);
 
 		statEClass = createEClass(STAT);
 		createEAttribute(statEClass, STAT__NAME);
@@ -1005,8 +1108,8 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 		triggerEClass = createEClass(TRIGGER);
 		createEAttribute(triggerEClass, TRIGGER__TRIGGERED);
 		createEAttribute(triggerEClass, TRIGGER__ID);
-		createEAttribute(triggerEClass, TRIGGER__MESSAGE);
 		createEAttribute(triggerEClass, TRIGGER__END_GAME);
+		createEReference(triggerEClass, TRIGGER__CONSEQUENCES);
 		createEOperation(triggerEClass, TRIGGER___ID_UNIQUE_DOOR__DIAGNOSTICCHAIN_MAP);
 
 		roomTriggerEClass = createEClass(ROOM_TRIGGER);
@@ -1021,8 +1124,11 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 		playerTriggerEClass = createEClass(PLAYER_TRIGGER);
 		createEReference(playerTriggerEClass, PLAYER_TRIGGER__PLAYER);
 
-		actionTriggerEClass = createEClass(ACTION_TRIGGER);
-		createEReference(actionTriggerEClass, ACTION_TRIGGER__ACTION);
+		consequenceEClass = createEClass(CONSEQUENCE);
+		createEAttribute(consequenceEClass, CONSEQUENCE__MESSAGE);
+		createEReference(consequenceEClass, CONSEQUENCE__CONSEQUENCE);
+		createEReference(consequenceEClass, CONSEQUENCE__ITEM_ACTION);
+		createEReference(consequenceEClass, CONSEQUENCE__CHARACTER_ACTION);
 	}
 
 	/**
@@ -1053,15 +1159,17 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		statActionEClass.getESuperTypes().add(this.getAction());
-		actionNewItemEClass.getESuperTypes().add(this.getAction());
-		roomActionEClass.getESuperTypes().add(this.getAction());
-		askActionEClass.getESuperTypes().add(this.getAction());
+		playerEClass.getESuperTypes().add(this.getCharacter());
+		npcEClass.getESuperTypes().add(this.getCharacter());
+		statConsequenceEClass.getESuperTypes().add(this.getConsequence());
+		consequenceGiveItemEClass.getESuperTypes().add(this.getConsequence());
+		consequenceSpawnItemEClass.getESuperTypes().add(this.getConsequence());
+		roomConsequenceEClass.getESuperTypes().add(this.getConsequence());
+		answerConsequenceEClass.getESuperTypes().add(this.getConsequence());
 		roomTriggerEClass.getESuperTypes().add(this.getTrigger());
 		itemTriggerEClass.getESuperTypes().add(this.getTrigger());
 		npcTriggerEClass.getESuperTypes().add(this.getTrigger());
 		playerTriggerEClass.getESuperTypes().add(this.getTrigger());
-		actionTriggerEClass.getESuperTypes().add(this.getTrigger());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(gameEClass, Game.class, "Game", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1070,11 +1178,18 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 		initEReference(getGame_RoomList(), this.getRoom(), null, "RoomList", null, 1, -1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGame_TriggerList(), this.getTrigger(), null, "TriggerList", null, 0, -1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(characterEClass, conversationalGame.Character.class, "Character", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCharacter_Inventory(), this.getItem(), null, "Inventory", null, 0, -1, conversationalGame.Character.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCharacter_Stats(), this.getStat(), null, "Stats", null, 0, -1, conversationalGame.Character.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCharacter_Dead(), ecorePackage.getEBoolean(), "Dead", "false", 1, 1, conversationalGame.Character.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCharacter_Actions(), this.getCharacterAction(), null, "Actions", null, 0, -1, conversationalGame.Character.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
 		initEClass(playerEClass, Player.class, "Player", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPlayer_Inventory(), this.getItem(), null, "Inventory", null, 0, -1, Player.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPlayer_CurrentRoom(), this.getRoom(), null, "CurrentRoom", null, 1, 1, Player.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlayer_Stats(), this.getStat(), null, "Stats", null, 0, -1, Player.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlayer_Dead(), ecorePackage.getEBoolean(), "Dead", "false", 1, 1, Player.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(npcEClass, Npc.class, "Npc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNpc_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Npc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNpc_FirstEncounterTrigger(), this.getRoomTrigger(), null, "FirstEncounterTrigger", null, 0, 1, Npc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(roomEClass, Room.class, "Room", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRoom_North(), this.getDoor(), null, "North", null, 0, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1121,15 +1236,8 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(npcEClass, Npc.class, "Npc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNpc_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Npc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNpc_Greeting(), ecorePackage.getEString(), "Greeting", null, 0, 1, Npc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNpc_Inventory(), this.getItem(), null, "Inventory", null, 0, -1, Npc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNpc_Dead(), ecorePackage.getEBoolean(), "Dead", null, 1, 1, Npc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNpc_Stats(), this.getStat(), null, "Stats", null, 0, -1, Npc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(itemEClass, Item.class, "Item", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getItem_Actions(), this.getAction(), null, "Actions", null, 0, -1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getItem_Actions(), this.getItemAction(), null, "Actions", null, 0, -1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getItem_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getItem_Id(), ecorePackage.getEString(), "Id", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1142,23 +1250,31 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(actionEClass, Action.class, "Action", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAction_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAction_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAction_Message(), ecorePackage.getEString(), "Message", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAction_Consequence(), this.getAction(), null, "Consequence", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAction_Npcs(), this.getNpc(), null, "Npcs", null, 0, -1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAction_Player(), this.getPlayer(), null, "Player", null, 1, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(itemActionEClass, ItemAction.class, "ItemAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getItemAction_Name(), ecorePackage.getEString(), "Name", null, 0, 1, ItemAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getItemAction_Description(), ecorePackage.getEString(), "Description", null, 0, 1, ItemAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getItemAction_Consequence(), this.getConsequence(), null, "Consequence", null, 0, 1, ItemAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(statActionEClass, StatAction.class, "StatAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStatAction_Value(), ecorePackage.getEInt(), "Value", null, 1, 1, StatAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStatAction_Stat(), this.getStat(), null, "Stat", null, 1, 1, StatAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(characterActionEClass, CharacterAction.class, "CharacterAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCharacterAction_Name(), ecorePackage.getEString(), "Name", null, 0, 1, CharacterAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCharacterAction_Description(), ecorePackage.getEString(), "Description", null, 0, 1, CharacterAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCharacterAction_Consequence(), this.getConsequence(), null, "Consequence", null, 0, 1, CharacterAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(actionNewItemEClass, ActionNewItem.class, "ActionNewItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getActionNewItem_NewItems(), this.getItem(), null, "NewItems", null, 0, -1, ActionNewItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(statConsequenceEClass, StatConsequence.class, "StatConsequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStatConsequence_Value(), ecorePackage.getEInt(), "Value", null, 1, 1, StatConsequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStatConsequence_Stat(), this.getStat(), null, "Stat", null, 1, 1, StatConsequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStatConsequence_Character(), this.getCharacter(), null, "Character", null, 1, 1, StatConsequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(roomActionEClass, RoomAction.class, "RoomAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRoomAction_Door(), this.getDoor(), null, "Door", null, 0, 1, RoomAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(consequenceGiveItemEClass, ConsequenceGiveItem.class, "ConsequenceGiveItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getConsequenceGiveItem_NewItems(), this.getItem(), null, "NewItems", null, 0, -1, ConsequenceGiveItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConsequenceGiveItem_Character(), this.getCharacter(), null, "Character", null, 1, 1, ConsequenceGiveItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(consequenceSpawnItemEClass, ConsequenceSpawnItem.class, "ConsequenceSpawnItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getConsequenceSpawnItem_NewItems(), this.getItem(), null, "NewItems", null, 0, -1, ConsequenceSpawnItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConsequenceSpawnItem_Room(), this.getRoom(), null, "Room", null, 1, 1, ConsequenceSpawnItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(roomConsequenceEClass, RoomConsequence.class, "RoomConsequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRoomConsequence_Door(), this.getDoor(), null, "Door", null, 0, 1, RoomConsequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(doorEClass, Door.class, "Door", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDoor_Open(), ecorePackage.getEBoolean(), "Open", "true", 1, 1, Door.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1174,19 +1290,19 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(askActionEClass, AskAction.class, "AskAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAskAction_Question(), ecorePackage.getEString(), "Question", null, 0, 1, AskAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAskAction_Answer(), ecorePackage.getEString(), "Answer", null, 0, 1, AskAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(answerConsequenceEClass, AnswerConsequence.class, "AnswerConsequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAnswerConsequence_Question(), ecorePackage.getEString(), "Question", null, 0, 1, AnswerConsequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnswerConsequence_Answer(), ecorePackage.getEString(), "Answer", null, 0, 1, AnswerConsequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(statEClass, Stat.class, "Stat", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStat_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Stat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStat_Value(), ecorePackage.getEInt(), "Value", null, 1, 1, Stat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(triggerEClass, Trigger.class, "Trigger", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(triggerEClass, Trigger.class, "Trigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTrigger_Triggered(), ecorePackage.getEBoolean(), "Triggered", null, 1, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTrigger_Id(), ecorePackage.getEString(), "Id", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTrigger_Message(), ecorePackage.getEString(), "Message", null, 0, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTrigger_EndGame(), ecorePackage.getEBoolean(), "EndGame", null, 1, 1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTrigger_Consequences(), this.getConsequence(), null, "Consequences", null, 0, -1, Trigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = initEOperation(getTrigger__IdUniqueDoor__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "idUniqueDoor", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1209,8 +1325,11 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 		initEClass(playerTriggerEClass, PlayerTrigger.class, "PlayerTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPlayerTrigger_Player(), this.getPlayer(), null, "Player", null, 0, 1, PlayerTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(actionTriggerEClass, ActionTrigger.class, "ActionTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getActionTrigger_Action(), this.getAction(), null, "Action", null, 0, 1, ActionTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(consequenceEClass, Consequence.class, "Consequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getConsequence_Message(), ecorePackage.getEString(), "Message", null, 0, 1, Consequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConsequence_Consequence(), this.getConsequence(), null, "Consequence", null, 0, 1, Consequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConsequence_ItemAction(), this.getItemAction(), null, "ItemAction", null, 0, 1, Consequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConsequence_CharacterAction(), this.getCharacterAction(), null, "CharacterAction", null, 0, 1, Consequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1218,6 +1337,8 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/Ecore
 		createEcoreAnnotations();
+		// http://www.eclipse.org/OCL/Collection
+		createCollectionAnnotations();
 		// http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
 		createPivotAnnotations();
 	}
@@ -1258,6 +1379,28 @@ public class ConversationalGamePackageImpl extends EPackageImpl implements Conve
 		   source,
 		   new String[] {
 			   "constraints", "idUniqueDoor"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/OCL/Collection</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createCollectionAnnotations() {
+		String source = "http://www.eclipse.org/OCL/Collection";
+		addAnnotation
+		  (getCharacter_Actions(),
+		   source,
+		   new String[] {
+			   "nullFree", "false"
+		   });
+		addAnnotation
+		  (getTrigger_Consequences(),
+		   source,
+		   new String[] {
+			   "nullFree", "false"
 		   });
 	}
 

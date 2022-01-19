@@ -2,6 +2,27 @@
  */
 package conversationalGame.util;
 
+import conversationalGame.AnswerConsequence;
+import conversationalGame.CharacterAction;
+import conversationalGame.Consequence;
+import conversationalGame.ConsequenceGiveItem;
+import conversationalGame.ConsequenceSpawnItem;
+import conversationalGame.ConversationalGamePackage;
+import conversationalGame.Door;
+import conversationalGame.Game;
+import conversationalGame.Item;
+import conversationalGame.ItemAction;
+import conversationalGame.ItemTrigger;
+import conversationalGame.Npc;
+import conversationalGame.NpcTrigger;
+import conversationalGame.Player;
+import conversationalGame.PlayerTrigger;
+import conversationalGame.Room;
+import conversationalGame.RoomConsequence;
+import conversationalGame.RoomTrigger;
+import conversationalGame.Stat;
+import conversationalGame.StatConsequence;
+import conversationalGame.Trigger;
 import conversationalGame.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -72,44 +93,56 @@ public class ConversationalGameAdapterFactory extends AdapterFactoryImpl {
 				return createGameAdapter();
 			}
 			@Override
-			public Adapter casePlayer(Player object) {
-				return createPlayerAdapter();
+			public Adapter caseCharacter(conversationalGame.Character object) {
+				return createCharacterAdapter();
 			}
 			@Override
-			public Adapter caseRoom(Room object) {
-				return createRoomAdapter();
+			public Adapter casePlayer(Player object) {
+				return createPlayerAdapter();
 			}
 			@Override
 			public Adapter caseNpc(Npc object) {
 				return createNpcAdapter();
 			}
 			@Override
+			public Adapter caseRoom(Room object) {
+				return createRoomAdapter();
+			}
+			@Override
 			public Adapter caseItem(Item object) {
 				return createItemAdapter();
 			}
 			@Override
-			public Adapter caseAction(Action object) {
-				return createActionAdapter();
+			public Adapter caseItemAction(ItemAction object) {
+				return createItemActionAdapter();
 			}
 			@Override
-			public Adapter caseStatAction(StatAction object) {
-				return createStatActionAdapter();
+			public Adapter caseCharacterAction(CharacterAction object) {
+				return createCharacterActionAdapter();
 			}
 			@Override
-			public Adapter caseActionNewItem(ActionNewItem object) {
-				return createActionNewItemAdapter();
+			public Adapter caseStatConsequence(StatConsequence object) {
+				return createStatConsequenceAdapter();
 			}
 			@Override
-			public Adapter caseRoomAction(RoomAction object) {
-				return createRoomActionAdapter();
+			public Adapter caseConsequenceGiveItem(ConsequenceGiveItem object) {
+				return createConsequenceGiveItemAdapter();
+			}
+			@Override
+			public Adapter caseConsequenceSpawnItem(ConsequenceSpawnItem object) {
+				return createConsequenceSpawnItemAdapter();
+			}
+			@Override
+			public Adapter caseRoomConsequence(RoomConsequence object) {
+				return createRoomConsequenceAdapter();
 			}
 			@Override
 			public Adapter caseDoor(Door object) {
 				return createDoorAdapter();
 			}
 			@Override
-			public Adapter caseAskAction(AskAction object) {
-				return createAskActionAdapter();
+			public Adapter caseAnswerConsequence(AnswerConsequence object) {
+				return createAnswerConsequenceAdapter();
 			}
 			@Override
 			public Adapter caseStat(Stat object) {
@@ -136,8 +169,8 @@ public class ConversationalGameAdapterFactory extends AdapterFactoryImpl {
 				return createPlayerTriggerAdapter();
 			}
 			@Override
-			public Adapter caseActionTrigger(ActionTrigger object) {
-				return createActionTriggerAdapter();
+			public Adapter caseConsequence(Consequence object) {
+				return createConsequenceAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -170,6 +203,20 @@ public class ConversationalGameAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGameAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link conversationalGame.Character <em>Character</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see conversationalGame.Character
+	 * @generated
+	 */
+	public Adapter createCharacterAdapter() {
 		return null;
 	}
 
@@ -230,58 +277,86 @@ public class ConversationalGameAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link conversationalGame.Action <em>Action</em>}'.
+	 * Creates a new adapter for an object of class '{@link conversationalGame.ItemAction <em>Item Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see conversationalGame.Action
+	 * @see conversationalGame.ItemAction
 	 * @generated
 	 */
-	public Adapter createActionAdapter() {
+	public Adapter createItemActionAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link conversationalGame.StatAction <em>Stat Action</em>}'.
+	 * Creates a new adapter for an object of class '{@link conversationalGame.CharacterAction <em>Character Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see conversationalGame.StatAction
+	 * @see conversationalGame.CharacterAction
 	 * @generated
 	 */
-	public Adapter createStatActionAdapter() {
+	public Adapter createCharacterActionAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link conversationalGame.ActionNewItem <em>Action New Item</em>}'.
+	 * Creates a new adapter for an object of class '{@link conversationalGame.StatConsequence <em>Stat Consequence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see conversationalGame.ActionNewItem
+	 * @see conversationalGame.StatConsequence
 	 * @generated
 	 */
-	public Adapter createActionNewItemAdapter() {
+	public Adapter createStatConsequenceAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link conversationalGame.RoomAction <em>Room Action</em>}'.
+	 * Creates a new adapter for an object of class '{@link conversationalGame.ConsequenceGiveItem <em>Consequence Give Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see conversationalGame.RoomAction
+	 * @see conversationalGame.ConsequenceGiveItem
 	 * @generated
 	 */
-	public Adapter createRoomActionAdapter() {
+	public Adapter createConsequenceGiveItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link conversationalGame.ConsequenceSpawnItem <em>Consequence Spawn Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see conversationalGame.ConsequenceSpawnItem
+	 * @generated
+	 */
+	public Adapter createConsequenceSpawnItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link conversationalGame.RoomConsequence <em>Room Consequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see conversationalGame.RoomConsequence
+	 * @generated
+	 */
+	public Adapter createRoomConsequenceAdapter() {
 		return null;
 	}
 
@@ -300,16 +375,16 @@ public class ConversationalGameAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link conversationalGame.AskAction <em>Ask Action</em>}'.
+	 * Creates a new adapter for an object of class '{@link conversationalGame.AnswerConsequence <em>Answer Consequence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see conversationalGame.AskAction
+	 * @see conversationalGame.AnswerConsequence
 	 * @generated
 	 */
-	public Adapter createAskActionAdapter() {
+	public Adapter createAnswerConsequenceAdapter() {
 		return null;
 	}
 
@@ -398,16 +473,16 @@ public class ConversationalGameAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link conversationalGame.ActionTrigger <em>Action Trigger</em>}'.
+	 * Creates a new adapter for an object of class '{@link conversationalGame.Consequence <em>Consequence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see conversationalGame.ActionTrigger
+	 * @see conversationalGame.Consequence
 	 * @generated
 	 */
-	public Adapter createActionTriggerAdapter() {
+	public Adapter createConsequenceAdapter() {
 		return null;
 	}
 

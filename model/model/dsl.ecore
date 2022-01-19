@@ -18,6 +18,8 @@
         upperBound="-1" eType="#//Room" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="TriggerList" upperBound="-1"
         eType="#//Trigger" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Greeting" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Character">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Inventory" upperBound="-1"

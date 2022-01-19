@@ -2,6 +2,27 @@
  */
 package conversationalGame.util;
 
+import conversationalGame.AnswerConsequence;
+import conversationalGame.CharacterAction;
+import conversationalGame.Consequence;
+import conversationalGame.ConsequenceGiveItem;
+import conversationalGame.ConsequenceSpawnItem;
+import conversationalGame.ConversationalGamePackage;
+import conversationalGame.Door;
+import conversationalGame.Game;
+import conversationalGame.Item;
+import conversationalGame.ItemAction;
+import conversationalGame.ItemTrigger;
+import conversationalGame.Npc;
+import conversationalGame.NpcTrigger;
+import conversationalGame.Player;
+import conversationalGame.PlayerTrigger;
+import conversationalGame.Room;
+import conversationalGame.RoomConsequence;
+import conversationalGame.RoomTrigger;
+import conversationalGame.Stat;
+import conversationalGame.StatConsequence;
+import conversationalGame.Trigger;
 import conversationalGame.*;
 
 import java.util.Map;
@@ -143,26 +164,32 @@ public class ConversationalGameValidator extends EObjectValidator {
 		switch (classifierID) {
 			case ConversationalGamePackage.GAME:
 				return validateGame((Game)value, diagnostics, context);
+			case ConversationalGamePackage.CHARACTER:
+				return validateCharacter((conversationalGame.Character)value, diagnostics, context);
 			case ConversationalGamePackage.PLAYER:
 				return validatePlayer((Player)value, diagnostics, context);
-			case ConversationalGamePackage.ROOM:
-				return validateRoom((Room)value, diagnostics, context);
 			case ConversationalGamePackage.NPC:
 				return validateNpc((Npc)value, diagnostics, context);
+			case ConversationalGamePackage.ROOM:
+				return validateRoom((Room)value, diagnostics, context);
 			case ConversationalGamePackage.ITEM:
 				return validateItem((Item)value, diagnostics, context);
-			case ConversationalGamePackage.ACTION:
-				return validateAction((Action)value, diagnostics, context);
-			case ConversationalGamePackage.STAT_ACTION:
-				return validateStatAction((StatAction)value, diagnostics, context);
-			case ConversationalGamePackage.ACTION_NEW_ITEM:
-				return validateActionNewItem((ActionNewItem)value, diagnostics, context);
-			case ConversationalGamePackage.ROOM_ACTION:
-				return validateRoomAction((RoomAction)value, diagnostics, context);
+			case ConversationalGamePackage.ITEM_ACTION:
+				return validateItemAction((ItemAction)value, diagnostics, context);
+			case ConversationalGamePackage.CHARACTER_ACTION:
+				return validateCharacterAction((CharacterAction)value, diagnostics, context);
+			case ConversationalGamePackage.STAT_CONSEQUENCE:
+				return validateStatConsequence((StatConsequence)value, diagnostics, context);
+			case ConversationalGamePackage.CONSEQUENCE_GIVE_ITEM:
+				return validateConsequenceGiveItem((ConsequenceGiveItem)value, diagnostics, context);
+			case ConversationalGamePackage.CONSEQUENCE_SPAWN_ITEM:
+				return validateConsequenceSpawnItem((ConsequenceSpawnItem)value, diagnostics, context);
+			case ConversationalGamePackage.ROOM_CONSEQUENCE:
+				return validateRoomConsequence((RoomConsequence)value, diagnostics, context);
 			case ConversationalGamePackage.DOOR:
 				return validateDoor((Door)value, diagnostics, context);
-			case ConversationalGamePackage.ASK_ACTION:
-				return validateAskAction((AskAction)value, diagnostics, context);
+			case ConversationalGamePackage.ANSWER_CONSEQUENCE:
+				return validateAnswerConsequence((AnswerConsequence)value, diagnostics, context);
 			case ConversationalGamePackage.STAT:
 				return validateStat((Stat)value, diagnostics, context);
 			case ConversationalGamePackage.TRIGGER:
@@ -175,8 +202,8 @@ public class ConversationalGameValidator extends EObjectValidator {
 				return validateNpcTrigger((NpcTrigger)value, diagnostics, context);
 			case ConversationalGamePackage.PLAYER_TRIGGER:
 				return validatePlayerTrigger((PlayerTrigger)value, diagnostics, context);
-			case ConversationalGamePackage.ACTION_TRIGGER:
-				return validateActionTrigger((ActionTrigger)value, diagnostics, context);
+			case ConversationalGamePackage.CONSEQUENCE:
+				return validateConsequence((Consequence)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -189,6 +216,15 @@ public class ConversationalGameValidator extends EObjectValidator {
 	 */
 	public boolean validateGame(Game game, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(game, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCharacter(conversationalGame.Character character, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(character, diagnostics, context);
 	}
 
 	/**
@@ -305,8 +341,8 @@ public class ConversationalGameValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAction(Action action, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(action, diagnostics, context);
+	public boolean validateItemAction(ItemAction itemAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(itemAction, diagnostics, context);
 	}
 
 	/**
@@ -314,8 +350,8 @@ public class ConversationalGameValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateStatAction(StatAction statAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(statAction, diagnostics, context);
+	public boolean validateCharacterAction(CharacterAction characterAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(characterAction, diagnostics, context);
 	}
 
 	/**
@@ -323,8 +359,8 @@ public class ConversationalGameValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateActionNewItem(ActionNewItem actionNewItem, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(actionNewItem, diagnostics, context);
+	public boolean validateStatConsequence(StatConsequence statConsequence, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(statConsequence, diagnostics, context);
 	}
 
 	/**
@@ -332,8 +368,26 @@ public class ConversationalGameValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateRoomAction(RoomAction roomAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(roomAction, diagnostics, context);
+	public boolean validateConsequenceGiveItem(ConsequenceGiveItem consequenceGiveItem, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(consequenceGiveItem, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateConsequenceSpawnItem(ConsequenceSpawnItem consequenceSpawnItem, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(consequenceSpawnItem, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateRoomConsequence(RoomConsequence roomConsequence, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(roomConsequence, diagnostics, context);
 	}
 
 	/**
@@ -370,8 +424,8 @@ public class ConversationalGameValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAskAction(AskAction askAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(askAction, diagnostics, context);
+	public boolean validateAnswerConsequence(AnswerConsequence answerConsequence, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(answerConsequence, diagnostics, context);
 	}
 
 	/**
@@ -493,18 +547,8 @@ public class ConversationalGameValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateActionTrigger(ActionTrigger actionTrigger, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(actionTrigger, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(actionTrigger, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(actionTrigger, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(actionTrigger, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(actionTrigger, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(actionTrigger, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(actionTrigger, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(actionTrigger, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(actionTrigger, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTrigger_idUniqueDoor(actionTrigger, diagnostics, context);
-		return result;
+	public boolean validateConsequence(Consequence consequence, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(consequence, diagnostics, context);
 	}
 
 	/**

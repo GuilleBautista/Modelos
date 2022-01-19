@@ -12,11 +12,18 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dsl.ecore#//Game/RoomList"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dsl.ecore#//Game/TriggerList"/>
     </genClasses>
+    <genClasses ecoreClass="dsl.ecore#//Character">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dsl.ecore#//Character/Inventory"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dsl.ecore#//Character/Stats"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Character/Dead"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Character/Actions"/>
+    </genClasses>
     <genClasses ecoreClass="dsl.ecore#//Player">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dsl.ecore#//Player/Inventory"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Player/CurrentRoom"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dsl.ecore#//Player/Stats"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Player/Dead"/>
+    </genClasses>
+    <genClasses ecoreClass="dsl.ecore#//Npc">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Npc/Name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Npc/FirstEncounterTrigger"/>
     </genClasses>
     <genClasses ecoreClass="dsl.ecore#//Room">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dsl.ecore#//Room/North"/>
@@ -27,32 +34,33 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dsl.ecore#//Room/Items"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dsl.ecore#//Room/Npcs"/>
     </genClasses>
-    <genClasses ecoreClass="dsl.ecore#//Npc">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Npc/Name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Npc/Greeting"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dsl.ecore#//Npc/Inventory"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Npc/Dead"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dsl.ecore#//Npc/Stats"/>
-    </genClasses>
     <genClasses ecoreClass="dsl.ecore#//Item">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Item/Actions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Item/Name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Item/Id"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="dsl.ecore#//Action">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Action/Name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Action/Description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Action/Message"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Action/Consequence"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Action/Npcs"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Action/Player"/>
+    <genClasses ecoreClass="dsl.ecore#//ItemAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//ItemAction/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//ItemAction/Description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//ItemAction/Consequence"/>
     </genClasses>
-    <genClasses ecoreClass="dsl.ecore#//StatAction">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//StatAction/Value"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//StatAction/Stat"/>
+    <genClasses ecoreClass="dsl.ecore#//CharacterAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//CharacterAction/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//CharacterAction/Description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//CharacterAction/Consequence"/>
     </genClasses>
-    <genClasses ecoreClass="dsl.ecore#//ActionNewItem">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//ActionNewItem/NewItems"/>
+    <genClasses ecoreClass="dsl.ecore#//StatConsequence">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//StatConsequence/Value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//StatConsequence/Stat"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//StatConsequence/Character"/>
+    </genClasses>
+    <genClasses ecoreClass="dsl.ecore#//ConsequenceGiveItem">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//ConsequenceGiveItem/NewItems"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//ConsequenceGiveItem/Character"/>
+    </genClasses>
+    <genClasses ecoreClass="dsl.ecore#//ConsequenceSpawnItem">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//ConsequenceSpawnItem/NewItems"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//ConsequenceSpawnItem/Room"/>
     </genClasses>
     <genClasses ecoreClass="dsl.ecore#//RoomConsequence">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//RoomConsequence/Door"/>
@@ -62,9 +70,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Door/Next"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Door/Id"/>
     </genClasses>
-    <genClasses ecoreClass="dsl.ecore#//AskAction">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//AskAction/Question"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//AskAction/Answer"/>
+    <genClasses ecoreClass="dsl.ecore#//AnswerConsequence">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//AnswerConsequence/Question"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//AnswerConsequence/Answer"/>
     </genClasses>
     <genClasses ecoreClass="dsl.ecore#//Stat">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Stat/Name"/>
@@ -73,8 +81,8 @@
     <genClasses image="false" ecoreClass="dsl.ecore#//Trigger">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Trigger/Triggered"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Trigger/Id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Trigger/Message"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Trigger/EndGame"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Trigger/Consequences"/>
     </genClasses>
     <genClasses ecoreClass="dsl.ecore#//RoomTrigger">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//RoomTrigger/Room"/>
@@ -88,8 +96,11 @@
     <genClasses ecoreClass="dsl.ecore#//PlayerTrigger">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//PlayerTrigger/Player"/>
     </genClasses>
-    <genClasses ecoreClass="dsl.ecore#//ActionTrigger">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//ActionTrigger/Action"/>
+    <genClasses ecoreClass="dsl.ecore#//Consequence">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Consequence/Message"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Consequence/Consequence"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Consequence/ItemAction"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dsl.ecore#//Consequence/CharacterAction"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

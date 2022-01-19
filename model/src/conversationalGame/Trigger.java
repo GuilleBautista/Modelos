@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -19,13 +20,12 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link conversationalGame.Trigger#isTriggered <em>Triggered</em>}</li>
  *   <li>{@link conversationalGame.Trigger#getId <em>Id</em>}</li>
- *   <li>{@link conversationalGame.Trigger#getMessage <em>Message</em>}</li>
  *   <li>{@link conversationalGame.Trigger#isEndGame <em>End Game</em>}</li>
+ *   <li>{@link conversationalGame.Trigger#getConsequences <em>Consequences</em>}</li>
  * </ul>
  *
  * @see conversationalGame.ConversationalGamePackage#getTrigger()
- * @model abstract="true"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='idUniqueDoor'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='idUniqueDoor'"
  * @generated
  */
 public interface Trigger extends EObject {
@@ -74,28 +74,6 @@ public interface Trigger extends EObject {
 	void setId(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Message</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Message</em>' attribute.
-	 * @see #setMessage(String)
-	 * @see conversationalGame.ConversationalGamePackage#getTrigger_Message()
-	 * @model
-	 * @generated
-	 */
-	String getMessage();
-
-	/**
-	 * Sets the value of the '{@link conversationalGame.Trigger#getMessage <em>Message</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Message</em>' attribute.
-	 * @see #getMessage()
-	 * @generated
-	 */
-	void setMessage(String value);
-
-	/**
 	 * Returns the value of the '<em><b>End Game</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -116,6 +94,19 @@ public interface Trigger extends EObject {
 	 * @generated
 	 */
 	void setEndGame(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Consequences</b></em>' reference list.
+	 * The list contents are of type {@link conversationalGame.Consequence}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Consequences</em>' reference list.
+	 * @see conversationalGame.ConversationalGamePackage#getTrigger_Consequences()
+	 * @model ordered="false"
+	 *        annotation="http://www.eclipse.org/OCL/Collection nullFree='false'"
+	 * @generated
+	 */
+	EList<Consequence> getConsequences();
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -31,6 +31,15 @@ public interface ConversationalGameFactory extends EFactory {
 	Game createGame();
 
 	/**
+	 * Returns a new object of class '<em>Character</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Character</em>'.
+	 * @generated
+	 */
+	Character createCharacter();
+
+	/**
 	 * Returns a new object of class '<em>Player</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,31 +76,58 @@ public interface ConversationalGameFactory extends EFactory {
 	Item createItem();
 
 	/**
-	 * Returns a new object of class '<em>Stat Action</em>'.
+	 * Returns a new object of class '<em>Item Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Stat Action</em>'.
+	 * @return a new object of class '<em>Item Action</em>'.
 	 * @generated
 	 */
-	StatAction createStatAction();
+	ItemAction createItemAction();
 
 	/**
-	 * Returns a new object of class '<em>Action New Item</em>'.
+	 * Returns a new object of class '<em>Character Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Action New Item</em>'.
+	 * @return a new object of class '<em>Character Action</em>'.
 	 * @generated
 	 */
-	ActionNewItem createActionNewItem();
+	CharacterAction createCharacterAction();
 
 	/**
-	 * Returns a new object of class '<em>Room Action</em>'.
+	 * Returns a new object of class '<em>Stat Consequence</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Room Action</em>'.
+	 * @return a new object of class '<em>Stat Consequence</em>'.
 	 * @generated
 	 */
-	RoomAction createRoomAction();
+	StatConsequence createStatConsequence();
+
+	/**
+	 * Returns a new object of class '<em>Consequence Give Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Consequence Give Item</em>'.
+	 * @generated
+	 */
+	ConsequenceGiveItem createConsequenceGiveItem();
+
+	/**
+	 * Returns a new object of class '<em>Consequence Spawn Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Consequence Spawn Item</em>'.
+	 * @generated
+	 */
+	ConsequenceSpawnItem createConsequenceSpawnItem();
+
+	/**
+	 * Returns a new object of class '<em>Room Consequence</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Room Consequence</em>'.
+	 * @generated
+	 */
+	RoomConsequence createRoomConsequence();
 
 	/**
 	 * Returns a new object of class '<em>Door</em>'.
@@ -103,13 +139,13 @@ public interface ConversationalGameFactory extends EFactory {
 	Door createDoor();
 
 	/**
-	 * Returns a new object of class '<em>Ask Action</em>'.
+	 * Returns a new object of class '<em>Answer Consequence</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ask Action</em>'.
+	 * @return a new object of class '<em>Answer Consequence</em>'.
 	 * @generated
 	 */
-	AskAction createAskAction();
+	AnswerConsequence createAnswerConsequence();
 
 	/**
 	 * Returns a new object of class '<em>Stat</em>'.
@@ -119,6 +155,15 @@ public interface ConversationalGameFactory extends EFactory {
 	 * @generated
 	 */
 	Stat createStat();
+
+	/**
+	 * Returns a new object of class '<em>Trigger</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Trigger</em>'.
+	 * @generated
+	 */
+	Trigger createTrigger();
 
 	/**
 	 * Returns a new object of class '<em>Room Trigger</em>'.
@@ -157,13 +202,13 @@ public interface ConversationalGameFactory extends EFactory {
 	PlayerTrigger createPlayerTrigger();
 
 	/**
-	 * Returns a new object of class '<em>Action Trigger</em>'.
+	 * Returns a new object of class '<em>Consequence</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Action Trigger</em>'.
+	 * @return a new object of class '<em>Consequence</em>'.
 	 * @generated
 	 */
-	ActionTrigger createActionTrigger();
+	Consequence createConsequence();
 
 	/**
 	 * Returns the package supported by this factory.

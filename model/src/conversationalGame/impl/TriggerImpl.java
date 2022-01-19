@@ -2,6 +2,7 @@
  */
 package conversationalGame.impl;
 
+import conversationalGame.Consequence;
 import conversationalGame.ConversationalGamePackage;
 import conversationalGame.ConversationalGameTables;
 import conversationalGame.Door;
@@ -9,6 +10,7 @@ import conversationalGame.Trigger;
 
 import java.lang.reflect.InvocationTargetException;
 
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -22,6 +24,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.ocl.pivot.evaluation.Executor;
 
 import org.eclipse.ocl.pivot.ids.IdResolver;
@@ -52,13 +55,13 @@ import org.eclipse.ocl.pivot.values.SetValue.Accumulator;
  * <ul>
  *   <li>{@link conversationalGame.impl.TriggerImpl#isTriggered <em>Triggered</em>}</li>
  *   <li>{@link conversationalGame.impl.TriggerImpl#getId <em>Id</em>}</li>
- *   <li>{@link conversationalGame.impl.TriggerImpl#getMessage <em>Message</em>}</li>
  *   <li>{@link conversationalGame.impl.TriggerImpl#isEndGame <em>End Game</em>}</li>
+ *   <li>{@link conversationalGame.impl.TriggerImpl#getConsequences <em>Consequences</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class TriggerImpl extends MinimalEObjectImpl.Container implements Trigger {
+public class TriggerImpl extends MinimalEObjectImpl.Container implements Trigger {
 	/**
 	 * The default value of the '{@link #isTriggered() <em>Triggered</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -100,26 +103,6 @@ public abstract class TriggerImpl extends MinimalEObjectImpl.Container implement
 	protected String id = ID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getMessage() <em>Message</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMessage()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String MESSAGE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getMessage() <em>Message</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMessage()
-	 * @generated
-	 * @ordered
-	 */
-	protected String message = MESSAGE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #isEndGame() <em>End Game</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,6 +121,16 @@ public abstract class TriggerImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected boolean endGame = END_GAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getConsequences() <em>Consequences</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConsequences()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Consequence> consequences;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -205,27 +198,6 @@ public abstract class TriggerImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getMessage() {
-		return message;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMessage(String newMessage) {
-		String oldMessage = message;
-		message = newMessage;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConversationalGamePackage.TRIGGER__MESSAGE, oldMessage, message));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean isEndGame() {
 		return endGame;
 	}
@@ -240,6 +212,18 @@ public abstract class TriggerImpl extends MinimalEObjectImpl.Container implement
 		endGame = newEndGame;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ConversationalGamePackage.TRIGGER__END_GAME, oldEndGame, endGame));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Consequence> getConsequences() {
+		if (consequences == null) {
+			consequences = new EObjectResolvingEList<Consequence>(Consequence.class, this, ConversationalGamePackage.TRIGGER__CONSEQUENCES);
+		}
+		return consequences;
 	}
 
 	/**
@@ -325,10 +309,10 @@ public abstract class TriggerImpl extends MinimalEObjectImpl.Container implement
 				return isTriggered();
 			case ConversationalGamePackage.TRIGGER__ID:
 				return getId();
-			case ConversationalGamePackage.TRIGGER__MESSAGE:
-				return getMessage();
 			case ConversationalGamePackage.TRIGGER__END_GAME:
 				return isEndGame();
+			case ConversationalGamePackage.TRIGGER__CONSEQUENCES:
+				return getConsequences();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -338,6 +322,7 @@ public abstract class TriggerImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -347,11 +332,12 @@ public abstract class TriggerImpl extends MinimalEObjectImpl.Container implement
 			case ConversationalGamePackage.TRIGGER__ID:
 				setId((String)newValue);
 				return;
-			case ConversationalGamePackage.TRIGGER__MESSAGE:
-				setMessage((String)newValue);
-				return;
 			case ConversationalGamePackage.TRIGGER__END_GAME:
 				setEndGame((Boolean)newValue);
+				return;
+			case ConversationalGamePackage.TRIGGER__CONSEQUENCES:
+				getConsequences().clear();
+				getConsequences().addAll((Collection<? extends Consequence>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -371,11 +357,11 @@ public abstract class TriggerImpl extends MinimalEObjectImpl.Container implement
 			case ConversationalGamePackage.TRIGGER__ID:
 				setId(ID_EDEFAULT);
 				return;
-			case ConversationalGamePackage.TRIGGER__MESSAGE:
-				setMessage(MESSAGE_EDEFAULT);
-				return;
 			case ConversationalGamePackage.TRIGGER__END_GAME:
 				setEndGame(END_GAME_EDEFAULT);
+				return;
+			case ConversationalGamePackage.TRIGGER__CONSEQUENCES:
+				getConsequences().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -393,10 +379,10 @@ public abstract class TriggerImpl extends MinimalEObjectImpl.Container implement
 				return triggered != TRIGGERED_EDEFAULT;
 			case ConversationalGamePackage.TRIGGER__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case ConversationalGamePackage.TRIGGER__MESSAGE:
-				return MESSAGE_EDEFAULT == null ? message != null : !MESSAGE_EDEFAULT.equals(message);
 			case ConversationalGamePackage.TRIGGER__END_GAME:
 				return endGame != END_GAME_EDEFAULT;
+			case ConversationalGamePackage.TRIGGER__CONSEQUENCES:
+				return consequences != null && !consequences.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -430,8 +416,6 @@ public abstract class TriggerImpl extends MinimalEObjectImpl.Container implement
 		result.append(triggered);
 		result.append(", Id: ");
 		result.append(id);
-		result.append(", Message: ");
-		result.append(message);
 		result.append(", EndGame: ");
 		result.append(endGame);
 		result.append(')');

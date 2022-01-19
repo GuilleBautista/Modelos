@@ -123,14 +123,14 @@ public interface ConversationalGamePackage extends EPackage {
 	int GAME_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link conversationalGame.impl.PlayerImpl <em>Player</em>}' class.
+	 * The meta object id for the '{@link conversationalGame.impl.CharacterImpl <em>Character</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see conversationalGame.impl.PlayerImpl
-	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getPlayer()
+	 * @see conversationalGame.impl.CharacterImpl
+	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getCharacter()
 	 * @generated
 	 */
-	int PLAYER = 1;
+	int CHARACTER = 1;
 
 	/**
 	 * The feature id for the '<em><b>Inventory</b></em>' containment reference list.
@@ -139,16 +139,7 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLAYER__INVENTORY = 0;
-
-	/**
-	 * The feature id for the '<em><b>Current Room</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLAYER__CURRENT_ROOM = 1;
+	int CHARACTER__INVENTORY = 0;
 
 	/**
 	 * The feature id for the '<em><b>Stats</b></em>' containment reference list.
@@ -157,7 +148,7 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLAYER__STATS = 2;
+	int CHARACTER__STATS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Dead</b></em>' attribute.
@@ -166,7 +157,89 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLAYER__DEAD = 3;
+	int CHARACTER__DEAD = 2;
+
+	/**
+	 * The feature id for the '<em><b>Actions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHARACTER__ACTIONS = 3;
+
+	/**
+	 * The number of structural features of the '<em>Character</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHARACTER_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Character</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHARACTER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link conversationalGame.impl.PlayerImpl <em>Player</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see conversationalGame.impl.PlayerImpl
+	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getPlayer()
+	 * @generated
+	 */
+	int PLAYER = 2;
+
+	/**
+	 * The feature id for the '<em><b>Inventory</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER__INVENTORY = CHARACTER__INVENTORY;
+
+	/**
+	 * The feature id for the '<em><b>Stats</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER__STATS = CHARACTER__STATS;
+
+	/**
+	 * The feature id for the '<em><b>Dead</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER__DEAD = CHARACTER__DEAD;
+
+	/**
+	 * The feature id for the '<em><b>Actions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER__ACTIONS = CHARACTER__ACTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Current Room</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER__CURRENT_ROOM = CHARACTER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Player</em>' class.
@@ -175,7 +248,7 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLAYER_FEATURE_COUNT = 4;
+	int PLAYER_FEATURE_COUNT = CHARACTER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Player</em>' class.
@@ -184,7 +257,7 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLAYER_OPERATION_COUNT = 0;
+	int PLAYER_OPERATION_COUNT = CHARACTER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link conversationalGame.impl.RoomImpl <em>Room</em>}' class.
@@ -194,7 +267,89 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getRoom()
 	 * @generated
 	 */
-	int ROOM = 2;
+	int ROOM = 4;
+
+	/**
+	 * The meta object id for the '{@link conversationalGame.impl.NpcImpl <em>Npc</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see conversationalGame.impl.NpcImpl
+	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getNpc()
+	 * @generated
+	 */
+	int NPC = 3;
+
+	/**
+	 * The feature id for the '<em><b>Inventory</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NPC__INVENTORY = CHARACTER__INVENTORY;
+
+	/**
+	 * The feature id for the '<em><b>Stats</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NPC__STATS = CHARACTER__STATS;
+
+	/**
+	 * The feature id for the '<em><b>Dead</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NPC__DEAD = CHARACTER__DEAD;
+
+	/**
+	 * The feature id for the '<em><b>Actions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NPC__ACTIONS = CHARACTER__ACTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NPC__NAME = CHARACTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>First Encounter Trigger</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NPC__FIRST_ENCOUNTER_TRIGGER = CHARACTER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Npc</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NPC_FEATURE_COUNT = CHARACTER_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Npc</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NPC_OPERATION_COUNT = CHARACTER_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>North</b></em>' containment reference.
@@ -314,79 +469,6 @@ public interface ConversationalGamePackage extends EPackage {
 	int ROOM_OPERATION_COUNT = 4;
 
 	/**
-	 * The meta object id for the '{@link conversationalGame.impl.NpcImpl <em>Npc</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see conversationalGame.impl.NpcImpl
-	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getNpc()
-	 * @generated
-	 */
-	int NPC = 3;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NPC__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Greeting</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NPC__GREETING = 1;
-
-	/**
-	 * The feature id for the '<em><b>Inventory</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NPC__INVENTORY = 2;
-
-	/**
-	 * The feature id for the '<em><b>Dead</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NPC__DEAD = 3;
-
-	/**
-	 * The feature id for the '<em><b>Stats</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NPC__STATS = 4;
-
-	/**
-	 * The number of structural features of the '<em>Npc</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NPC_FEATURE_COUNT = 5;
-
-	/**
-	 * The number of operations of the '<em>Npc</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NPC_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link conversationalGame.impl.ItemImpl <em>Item</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -394,7 +476,7 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getItem()
 	 * @generated
 	 */
-	int ITEM = 4;
+	int ITEM = 5;
 
 	/**
 	 * The feature id for the '<em><b>Actions</b></em>' reference list.
@@ -451,14 +533,14 @@ public interface ConversationalGamePackage extends EPackage {
 	int ITEM_OPERATION_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link conversationalGame.impl.ActionImpl <em>Action</em>}' class.
+	 * The meta object id for the '{@link conversationalGame.impl.ItemActionImpl <em>Item Action</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see conversationalGame.impl.ActionImpl
-	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getAction()
+	 * @see conversationalGame.impl.ItemActionImpl
+	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getItemAction()
 	 * @generated
 	 */
-	int ACTION = 5;
+	int ITEM_ACTION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -467,7 +549,7 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__NAME = 0;
+	int ITEM_ACTION__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -476,16 +558,7 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__DESCRIPTION = 1;
-
-	/**
-	 * The feature id for the '<em><b>Message</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__MESSAGE = 2;
+	int ITEM_ACTION__DESCRIPTION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Consequence</b></em>' reference.
@@ -494,53 +567,35 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__CONSEQUENCE = 3;
+	int ITEM_ACTION__CONSEQUENCE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Npcs</b></em>' reference list.
+	 * The number of structural features of the '<em>Item Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__NPCS = 4;
+	int ITEM_ACTION_FEATURE_COUNT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Player</b></em>' reference.
+	 * The number of operations of the '<em>Item Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__PLAYER = 5;
+	int ITEM_ACTION_OPERATION_COUNT = 0;
 
 	/**
-	 * The number of structural features of the '<em>Action</em>' class.
+	 * The meta object id for the '{@link conversationalGame.impl.CharacterActionImpl <em>Character Action</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_FEATURE_COUNT = 6;
-
-	/**
-	 * The number of operations of the '<em>Action</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link conversationalGame.impl.StatActionImpl <em>Stat Action</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see conversationalGame.impl.StatActionImpl
-	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getStatAction()
+	 * @see conversationalGame.impl.CharacterActionImpl
+	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getCharacterAction()
 	 * @generated
 	 */
-	int STAT_ACTION = 6;
+	int CHARACTER_ACTION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -549,7 +604,7 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STAT_ACTION__NAME = ACTION__NAME;
+	int CHARACTER_ACTION__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -558,16 +613,7 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STAT_ACTION__DESCRIPTION = ACTION__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Message</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STAT_ACTION__MESSAGE = ACTION__MESSAGE;
+	int CHARACTER_ACTION__DESCRIPTION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Consequence</b></em>' reference.
@@ -576,25 +622,135 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STAT_ACTION__CONSEQUENCE = ACTION__CONSEQUENCE;
+	int CHARACTER_ACTION__CONSEQUENCE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Npcs</b></em>' reference list.
+	 * The number of structural features of the '<em>Character Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STAT_ACTION__NPCS = ACTION__NPCS;
+	int CHARACTER_ACTION_FEATURE_COUNT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Player</b></em>' reference.
+	 * The number of operations of the '<em>Character Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STAT_ACTION__PLAYER = ACTION__PLAYER;
+	int CHARACTER_ACTION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link conversationalGame.impl.ConsequenceImpl <em>Consequence</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see conversationalGame.impl.ConsequenceImpl
+	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getConsequence()
+	 * @generated
+	 */
+	int CONSEQUENCE = 20;
+
+	/**
+	 * The feature id for the '<em><b>Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSEQUENCE__MESSAGE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Consequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSEQUENCE__CONSEQUENCE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Item Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSEQUENCE__ITEM_ACTION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Character Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSEQUENCE__CHARACTER_ACTION = 3;
+
+	/**
+	 * The number of structural features of the '<em>Consequence</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSEQUENCE_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Consequence</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSEQUENCE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link conversationalGame.impl.StatConsequenceImpl <em>Stat Consequence</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see conversationalGame.impl.StatConsequenceImpl
+	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getStatConsequence()
+	 * @generated
+	 */
+	int STAT_CONSEQUENCE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STAT_CONSEQUENCE__MESSAGE = CONSEQUENCE__MESSAGE;
+
+	/**
+	 * The feature id for the '<em><b>Consequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STAT_CONSEQUENCE__CONSEQUENCE = CONSEQUENCE__CONSEQUENCE;
+
+	/**
+	 * The feature id for the '<em><b>Item Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STAT_CONSEQUENCE__ITEM_ACTION = CONSEQUENCE__ITEM_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Character Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STAT_CONSEQUENCE__CHARACTER_ACTION = CONSEQUENCE__CHARACTER_ACTION;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -603,7 +759,7 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STAT_ACTION__VALUE = ACTION_FEATURE_COUNT + 0;
+	int STAT_CONSEQUENCE__VALUE = CONSEQUENCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Stat</b></em>' reference.
@@ -612,53 +768,44 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STAT_ACTION__STAT = ACTION_FEATURE_COUNT + 1;
+	int STAT_CONSEQUENCE__STAT = CONSEQUENCE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Stat Action</em>' class.
+	 * The feature id for the '<em><b>Character</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STAT_ACTION_FEATURE_COUNT = ACTION_FEATURE_COUNT + 2;
+	int STAT_CONSEQUENCE__CHARACTER = CONSEQUENCE_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Stat Action</em>' class.
+	 * The number of structural features of the '<em>Stat Consequence</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STAT_ACTION_OPERATION_COUNT = ACTION_OPERATION_COUNT + 0;
+	int STAT_CONSEQUENCE_FEATURE_COUNT = CONSEQUENCE_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link conversationalGame.impl.ActionNewItemImpl <em>Action New Item</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see conversationalGame.impl.ActionNewItemImpl
-	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getActionNewItem()
-	 * @generated
-	 */
-	int ACTION_NEW_ITEM = 7;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The number of operations of the '<em>Stat Consequence</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_NEW_ITEM__NAME = ACTION__NAME;
+	int STAT_CONSEQUENCE_OPERATION_COUNT = CONSEQUENCE_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * The meta object id for the '{@link conversationalGame.impl.ConsequenceGiveItemImpl <em>Consequence Give Item</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see conversationalGame.impl.ConsequenceGiveItemImpl
+	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getConsequenceGiveItem()
 	 * @generated
-	 * @ordered
 	 */
-	int ACTION_NEW_ITEM__DESCRIPTION = ACTION__DESCRIPTION;
+	int CONSEQUENCE_GIVE_ITEM = 9;
 
 	/**
 	 * The feature id for the '<em><b>Message</b></em>' attribute.
@@ -667,7 +814,7 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_NEW_ITEM__MESSAGE = ACTION__MESSAGE;
+	int CONSEQUENCE_GIVE_ITEM__MESSAGE = CONSEQUENCE__MESSAGE;
 
 	/**
 	 * The feature id for the '<em><b>Consequence</b></em>' reference.
@@ -676,25 +823,25 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_NEW_ITEM__CONSEQUENCE = ACTION__CONSEQUENCE;
+	int CONSEQUENCE_GIVE_ITEM__CONSEQUENCE = CONSEQUENCE__CONSEQUENCE;
 
 	/**
-	 * The feature id for the '<em><b>Npcs</b></em>' reference list.
+	 * The feature id for the '<em><b>Item Action</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_NEW_ITEM__NPCS = ACTION__NPCS;
+	int CONSEQUENCE_GIVE_ITEM__ITEM_ACTION = CONSEQUENCE__ITEM_ACTION;
 
 	/**
-	 * The feature id for the '<em><b>Player</b></em>' reference.
+	 * The feature id for the '<em><b>Character Action</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_NEW_ITEM__PLAYER = ACTION__PLAYER;
+	int CONSEQUENCE_GIVE_ITEM__CHARACTER_ACTION = CONSEQUENCE__CHARACTER_ACTION;
 
 	/**
 	 * The feature id for the '<em><b>New Items</b></em>' reference list.
@@ -703,53 +850,44 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_NEW_ITEM__NEW_ITEMS = ACTION_FEATURE_COUNT + 0;
+	int CONSEQUENCE_GIVE_ITEM__NEW_ITEMS = CONSEQUENCE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Action New Item</em>' class.
+	 * The feature id for the '<em><b>Character</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_NEW_ITEM_FEATURE_COUNT = ACTION_FEATURE_COUNT + 1;
+	int CONSEQUENCE_GIVE_ITEM__CHARACTER = CONSEQUENCE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Action New Item</em>' class.
+	 * The number of structural features of the '<em>Consequence Give Item</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_NEW_ITEM_OPERATION_COUNT = ACTION_OPERATION_COUNT + 0;
+	int CONSEQUENCE_GIVE_ITEM_FEATURE_COUNT = CONSEQUENCE_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link conversationalGame.impl.RoomActionImpl <em>Room Action</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see conversationalGame.impl.RoomActionImpl
-	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getRoomAction()
-	 * @generated
-	 */
-	int ROOM_ACTION = 8;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The number of operations of the '<em>Consequence Give Item</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_ACTION__NAME = ACTION__NAME;
+	int CONSEQUENCE_GIVE_ITEM_OPERATION_COUNT = CONSEQUENCE_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * The meta object id for the '{@link conversationalGame.impl.ConsequenceSpawnItemImpl <em>Consequence Spawn Item</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see conversationalGame.impl.ConsequenceSpawnItemImpl
+	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getConsequenceSpawnItem()
 	 * @generated
-	 * @ordered
 	 */
-	int ROOM_ACTION__DESCRIPTION = ACTION__DESCRIPTION;
+	int CONSEQUENCE_SPAWN_ITEM = 10;
 
 	/**
 	 * The feature id for the '<em><b>Message</b></em>' attribute.
@@ -758,7 +896,7 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_ACTION__MESSAGE = ACTION__MESSAGE;
+	int CONSEQUENCE_SPAWN_ITEM__MESSAGE = CONSEQUENCE__MESSAGE;
 
 	/**
 	 * The feature id for the '<em><b>Consequence</b></em>' reference.
@@ -767,25 +905,107 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_ACTION__CONSEQUENCE = ACTION__CONSEQUENCE;
+	int CONSEQUENCE_SPAWN_ITEM__CONSEQUENCE = CONSEQUENCE__CONSEQUENCE;
 
 	/**
-	 * The feature id for the '<em><b>Npcs</b></em>' reference list.
+	 * The feature id for the '<em><b>Item Action</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_ACTION__NPCS = ACTION__NPCS;
+	int CONSEQUENCE_SPAWN_ITEM__ITEM_ACTION = CONSEQUENCE__ITEM_ACTION;
 
 	/**
-	 * The feature id for the '<em><b>Player</b></em>' reference.
+	 * The feature id for the '<em><b>Character Action</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_ACTION__PLAYER = ACTION__PLAYER;
+	int CONSEQUENCE_SPAWN_ITEM__CHARACTER_ACTION = CONSEQUENCE__CHARACTER_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>New Items</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSEQUENCE_SPAWN_ITEM__NEW_ITEMS = CONSEQUENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Room</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSEQUENCE_SPAWN_ITEM__ROOM = CONSEQUENCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Consequence Spawn Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSEQUENCE_SPAWN_ITEM_FEATURE_COUNT = CONSEQUENCE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Consequence Spawn Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSEQUENCE_SPAWN_ITEM_OPERATION_COUNT = CONSEQUENCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link conversationalGame.impl.RoomConsequenceImpl <em>Room Consequence</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see conversationalGame.impl.RoomConsequenceImpl
+	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getRoomConsequence()
+	 * @generated
+	 */
+	int ROOM_CONSEQUENCE = 11;
+
+	/**
+	 * The feature id for the '<em><b>Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_CONSEQUENCE__MESSAGE = CONSEQUENCE__MESSAGE;
+
+	/**
+	 * The feature id for the '<em><b>Consequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_CONSEQUENCE__CONSEQUENCE = CONSEQUENCE__CONSEQUENCE;
+
+	/**
+	 * The feature id for the '<em><b>Item Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_CONSEQUENCE__ITEM_ACTION = CONSEQUENCE__ITEM_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Character Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_CONSEQUENCE__CHARACTER_ACTION = CONSEQUENCE__CHARACTER_ACTION;
 
 	/**
 	 * The feature id for the '<em><b>Door</b></em>' reference.
@@ -794,25 +1014,25 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_ACTION__DOOR = ACTION_FEATURE_COUNT + 0;
+	int ROOM_CONSEQUENCE__DOOR = CONSEQUENCE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Room Action</em>' class.
+	 * The number of structural features of the '<em>Room Consequence</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_ACTION_FEATURE_COUNT = ACTION_FEATURE_COUNT + 1;
+	int ROOM_CONSEQUENCE_FEATURE_COUNT = CONSEQUENCE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Room Action</em>' class.
+	 * The number of operations of the '<em>Room Consequence</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_ACTION_OPERATION_COUNT = ACTION_OPERATION_COUNT + 0;
+	int ROOM_CONSEQUENCE_OPERATION_COUNT = CONSEQUENCE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link conversationalGame.impl.DoorImpl <em>Door</em>}' class.
@@ -822,7 +1042,7 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getDoor()
 	 * @generated
 	 */
-	int DOOR = 9;
+	int DOOR = 12;
 
 	/**
 	 * The feature id for the '<em><b>Open</b></em>' attribute.
@@ -879,32 +1099,14 @@ public interface ConversationalGamePackage extends EPackage {
 	int DOOR_OPERATION_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link conversationalGame.impl.AskActionImpl <em>Ask Action</em>}' class.
+	 * The meta object id for the '{@link conversationalGame.impl.AnswerConsequenceImpl <em>Answer Consequence</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see conversationalGame.impl.AskActionImpl
-	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getAskAction()
+	 * @see conversationalGame.impl.AnswerConsequenceImpl
+	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getAnswerConsequence()
 	 * @generated
 	 */
-	int ASK_ACTION = 10;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASK_ACTION__NAME = ACTION__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASK_ACTION__DESCRIPTION = ACTION__DESCRIPTION;
+	int ANSWER_CONSEQUENCE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Message</b></em>' attribute.
@@ -913,7 +1115,7 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASK_ACTION__MESSAGE = ACTION__MESSAGE;
+	int ANSWER_CONSEQUENCE__MESSAGE = CONSEQUENCE__MESSAGE;
 
 	/**
 	 * The feature id for the '<em><b>Consequence</b></em>' reference.
@@ -922,25 +1124,25 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASK_ACTION__CONSEQUENCE = ACTION__CONSEQUENCE;
+	int ANSWER_CONSEQUENCE__CONSEQUENCE = CONSEQUENCE__CONSEQUENCE;
 
 	/**
-	 * The feature id for the '<em><b>Npcs</b></em>' reference list.
+	 * The feature id for the '<em><b>Item Action</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASK_ACTION__NPCS = ACTION__NPCS;
+	int ANSWER_CONSEQUENCE__ITEM_ACTION = CONSEQUENCE__ITEM_ACTION;
 
 	/**
-	 * The feature id for the '<em><b>Player</b></em>' reference.
+	 * The feature id for the '<em><b>Character Action</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASK_ACTION__PLAYER = ACTION__PLAYER;
+	int ANSWER_CONSEQUENCE__CHARACTER_ACTION = CONSEQUENCE__CHARACTER_ACTION;
 
 	/**
 	 * The feature id for the '<em><b>Question</b></em>' attribute.
@@ -949,7 +1151,7 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASK_ACTION__QUESTION = ACTION_FEATURE_COUNT + 0;
+	int ANSWER_CONSEQUENCE__QUESTION = CONSEQUENCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Answer</b></em>' attribute.
@@ -958,25 +1160,25 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASK_ACTION__ANSWER = ACTION_FEATURE_COUNT + 1;
+	int ANSWER_CONSEQUENCE__ANSWER = CONSEQUENCE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Ask Action</em>' class.
+	 * The number of structural features of the '<em>Answer Consequence</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASK_ACTION_FEATURE_COUNT = ACTION_FEATURE_COUNT + 2;
+	int ANSWER_CONSEQUENCE_FEATURE_COUNT = CONSEQUENCE_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Ask Action</em>' class.
+	 * The number of operations of the '<em>Answer Consequence</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASK_ACTION_OPERATION_COUNT = ACTION_OPERATION_COUNT + 0;
+	int ANSWER_CONSEQUENCE_OPERATION_COUNT = CONSEQUENCE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link conversationalGame.impl.StatImpl <em>Stat</em>}' class.
@@ -986,7 +1188,7 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getStat()
 	 * @generated
 	 */
-	int STAT = 11;
+	int STAT = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1032,7 +1234,7 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getTrigger()
 	 * @generated
 	 */
-	int TRIGGER = 12;
+	int TRIGGER = 15;
 
 	/**
 	 * The feature id for the '<em><b>Triggered</b></em>' attribute.
@@ -1053,22 +1255,22 @@ public interface ConversationalGamePackage extends EPackage {
 	int TRIGGER__ID = 1;
 
 	/**
-	 * The feature id for the '<em><b>Message</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRIGGER__MESSAGE = 2;
-
-	/**
 	 * The feature id for the '<em><b>End Game</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRIGGER__END_GAME = 3;
+	int TRIGGER__END_GAME = 2;
+
+	/**
+	 * The feature id for the '<em><b>Consequences</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRIGGER__CONSEQUENCES = 3;
 
 	/**
 	 * The number of structural features of the '<em>Trigger</em>' class.
@@ -1105,7 +1307,7 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getRoomTrigger()
 	 * @generated
 	 */
-	int ROOM_TRIGGER = 13;
+	int ROOM_TRIGGER = 16;
 
 	/**
 	 * The feature id for the '<em><b>Triggered</b></em>' attribute.
@@ -1126,15 +1328,6 @@ public interface ConversationalGamePackage extends EPackage {
 	int ROOM_TRIGGER__ID = TRIGGER__ID;
 
 	/**
-	 * The feature id for the '<em><b>Message</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROOM_TRIGGER__MESSAGE = TRIGGER__MESSAGE;
-
-	/**
 	 * The feature id for the '<em><b>End Game</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1142,6 +1335,15 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @ordered
 	 */
 	int ROOM_TRIGGER__END_GAME = TRIGGER__END_GAME;
+
+	/**
+	 * The feature id for the '<em><b>Consequences</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_TRIGGER__CONSEQUENCES = TRIGGER__CONSEQUENCES;
 
 	/**
 	 * The feature id for the '<em><b>Room</b></em>' reference.
@@ -1187,7 +1389,7 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getItemTrigger()
 	 * @generated
 	 */
-	int ITEM_TRIGGER = 14;
+	int ITEM_TRIGGER = 17;
 
 	/**
 	 * The feature id for the '<em><b>Triggered</b></em>' attribute.
@@ -1208,15 +1410,6 @@ public interface ConversationalGamePackage extends EPackage {
 	int ITEM_TRIGGER__ID = TRIGGER__ID;
 
 	/**
-	 * The feature id for the '<em><b>Message</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITEM_TRIGGER__MESSAGE = TRIGGER__MESSAGE;
-
-	/**
 	 * The feature id for the '<em><b>End Game</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1224,6 +1417,15 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @ordered
 	 */
 	int ITEM_TRIGGER__END_GAME = TRIGGER__END_GAME;
+
+	/**
+	 * The feature id for the '<em><b>Consequences</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEM_TRIGGER__CONSEQUENCES = TRIGGER__CONSEQUENCES;
 
 	/**
 	 * The feature id for the '<em><b>Item</b></em>' reference.
@@ -1269,7 +1471,7 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getNpcTrigger()
 	 * @generated
 	 */
-	int NPC_TRIGGER = 15;
+	int NPC_TRIGGER = 18;
 
 	/**
 	 * The feature id for the '<em><b>Triggered</b></em>' attribute.
@@ -1290,15 +1492,6 @@ public interface ConversationalGamePackage extends EPackage {
 	int NPC_TRIGGER__ID = TRIGGER__ID;
 
 	/**
-	 * The feature id for the '<em><b>Message</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NPC_TRIGGER__MESSAGE = TRIGGER__MESSAGE;
-
-	/**
 	 * The feature id for the '<em><b>End Game</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1306,6 +1499,15 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @ordered
 	 */
 	int NPC_TRIGGER__END_GAME = TRIGGER__END_GAME;
+
+	/**
+	 * The feature id for the '<em><b>Consequences</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NPC_TRIGGER__CONSEQUENCES = TRIGGER__CONSEQUENCES;
 
 	/**
 	 * The feature id for the '<em><b>Npc</b></em>' reference.
@@ -1351,7 +1553,7 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getPlayerTrigger()
 	 * @generated
 	 */
-	int PLAYER_TRIGGER = 16;
+	int PLAYER_TRIGGER = 19;
 
 	/**
 	 * The feature id for the '<em><b>Triggered</b></em>' attribute.
@@ -1372,15 +1574,6 @@ public interface ConversationalGamePackage extends EPackage {
 	int PLAYER_TRIGGER__ID = TRIGGER__ID;
 
 	/**
-	 * The feature id for the '<em><b>Message</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLAYER_TRIGGER__MESSAGE = TRIGGER__MESSAGE;
-
-	/**
 	 * The feature id for the '<em><b>End Game</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1388,6 +1581,15 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @ordered
 	 */
 	int PLAYER_TRIGGER__END_GAME = TRIGGER__END_GAME;
+
+	/**
+	 * The feature id for the '<em><b>Consequences</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER_TRIGGER__CONSEQUENCES = TRIGGER__CONSEQUENCES;
 
 	/**
 	 * The feature id for the '<em><b>Player</b></em>' reference.
@@ -1424,89 +1626,6 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @ordered
 	 */
 	int PLAYER_TRIGGER_OPERATION_COUNT = TRIGGER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link conversationalGame.impl.ActionTriggerImpl <em>Action Trigger</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see conversationalGame.impl.ActionTriggerImpl
-	 * @see conversationalGame.impl.ConversationalGamePackageImpl#getActionTrigger()
-	 * @generated
-	 */
-	int ACTION_TRIGGER = 17;
-
-	/**
-	 * The feature id for the '<em><b>Triggered</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_TRIGGER__TRIGGERED = TRIGGER__TRIGGERED;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_TRIGGER__ID = TRIGGER__ID;
-
-	/**
-	 * The feature id for the '<em><b>Message</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_TRIGGER__MESSAGE = TRIGGER__MESSAGE;
-
-	/**
-	 * The feature id for the '<em><b>End Game</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_TRIGGER__END_GAME = TRIGGER__END_GAME;
-
-	/**
-	 * The feature id for the '<em><b>Action</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_TRIGGER__ACTION = TRIGGER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Action Trigger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_TRIGGER_FEATURE_COUNT = TRIGGER_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Id Unique Door</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_TRIGGER___ID_UNIQUE_DOOR__DIAGNOSTICCHAIN_MAP = TRIGGER___ID_UNIQUE_DOOR__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The number of operations of the '<em>Action Trigger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION_TRIGGER_OPERATION_COUNT = TRIGGER_OPERATION_COUNT + 0;
-
 
 	/**
 	 * Returns the meta object for class '{@link conversationalGame.Game <em>Game</em>}'.
@@ -1563,6 +1682,60 @@ public interface ConversationalGamePackage extends EPackage {
 	EReference getGame_TriggerList();
 
 	/**
+	 * Returns the meta object for class '{@link conversationalGame.Character <em>Character</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Character</em>'.
+	 * @see conversationalGame.Character
+	 * @generated
+	 */
+	EClass getCharacter();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link conversationalGame.Character#getInventory <em>Inventory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Inventory</em>'.
+	 * @see conversationalGame.Character#getInventory()
+	 * @see #getCharacter()
+	 * @generated
+	 */
+	EReference getCharacter_Inventory();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link conversationalGame.Character#getStats <em>Stats</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Stats</em>'.
+	 * @see conversationalGame.Character#getStats()
+	 * @see #getCharacter()
+	 * @generated
+	 */
+	EReference getCharacter_Stats();
+
+	/**
+	 * Returns the meta object for the attribute '{@link conversationalGame.Character#isDead <em>Dead</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Dead</em>'.
+	 * @see conversationalGame.Character#isDead()
+	 * @see #getCharacter()
+	 * @generated
+	 */
+	EAttribute getCharacter_Dead();
+
+	/**
+	 * Returns the meta object for the reference list '{@link conversationalGame.Character#getActions <em>Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Actions</em>'.
+	 * @see conversationalGame.Character#getActions()
+	 * @see #getCharacter()
+	 * @generated
+	 */
+	EReference getCharacter_Actions();
+
+	/**
 	 * Returns the meta object for class '{@link conversationalGame.Player <em>Player</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1571,17 +1744,6 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPlayer();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link conversationalGame.Player#getInventory <em>Inventory</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Inventory</em>'.
-	 * @see conversationalGame.Player#getInventory()
-	 * @see #getPlayer()
-	 * @generated
-	 */
-	EReference getPlayer_Inventory();
 
 	/**
 	 * Returns the meta object for the reference '{@link conversationalGame.Player#getCurrentRoom <em>Current Room</em>}'.
@@ -1593,28 +1755,6 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPlayer_CurrentRoom();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link conversationalGame.Player#getStats <em>Stats</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Stats</em>'.
-	 * @see conversationalGame.Player#getStats()
-	 * @see #getPlayer()
-	 * @generated
-	 */
-	EReference getPlayer_Stats();
-
-	/**
-	 * Returns the meta object for the attribute '{@link conversationalGame.Player#isDead <em>Dead</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Dead</em>'.
-	 * @see conversationalGame.Player#isDead()
-	 * @see #getPlayer()
-	 * @generated
-	 */
-	EAttribute getPlayer_Dead();
 
 	/**
 	 * Returns the meta object for class '{@link conversationalGame.Room <em>Room</em>}'.
@@ -1765,48 +1905,15 @@ public interface ConversationalGamePackage extends EPackage {
 	EAttribute getNpc_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link conversationalGame.Npc#getGreeting <em>Greeting</em>}'.
+	 * Returns the meta object for the reference '{@link conversationalGame.Npc#getFirstEncounterTrigger <em>First Encounter Trigger</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Greeting</em>'.
-	 * @see conversationalGame.Npc#getGreeting()
+	 * @return the meta object for the reference '<em>First Encounter Trigger</em>'.
+	 * @see conversationalGame.Npc#getFirstEncounterTrigger()
 	 * @see #getNpc()
 	 * @generated
 	 */
-	EAttribute getNpc_Greeting();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link conversationalGame.Npc#getInventory <em>Inventory</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Inventory</em>'.
-	 * @see conversationalGame.Npc#getInventory()
-	 * @see #getNpc()
-	 * @generated
-	 */
-	EReference getNpc_Inventory();
-
-	/**
-	 * Returns the meta object for the attribute '{@link conversationalGame.Npc#isDead <em>Dead</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Dead</em>'.
-	 * @see conversationalGame.Npc#isDead()
-	 * @see #getNpc()
-	 * @generated
-	 */
-	EAttribute getNpc_Dead();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link conversationalGame.Npc#getStats <em>Stats</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Stats</em>'.
-	 * @see conversationalGame.Npc#getStats()
-	 * @see #getNpc()
-	 * @generated
-	 */
-	EReference getNpc_Stats();
+	EReference getNpc_FirstEncounterTrigger();
 
 	/**
 	 * Returns the meta object for class '{@link conversationalGame.Item <em>Item</em>}'.
@@ -1862,154 +1969,218 @@ public interface ConversationalGamePackage extends EPackage {
 	EOperation getItem__IdUniqueItem__DiagnosticChain_Map();
 
 	/**
-	 * Returns the meta object for class '{@link conversationalGame.Action <em>Action</em>}'.
+	 * Returns the meta object for class '{@link conversationalGame.ItemAction <em>Item Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Action</em>'.
-	 * @see conversationalGame.Action
+	 * @return the meta object for class '<em>Item Action</em>'.
+	 * @see conversationalGame.ItemAction
 	 * @generated
 	 */
-	EClass getAction();
+	EClass getItemAction();
 
 	/**
-	 * Returns the meta object for the attribute '{@link conversationalGame.Action#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link conversationalGame.ItemAction#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see conversationalGame.Action#getName()
-	 * @see #getAction()
+	 * @see conversationalGame.ItemAction#getName()
+	 * @see #getItemAction()
 	 * @generated
 	 */
-	EAttribute getAction_Name();
+	EAttribute getItemAction_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link conversationalGame.Action#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the attribute '{@link conversationalGame.ItemAction#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see conversationalGame.Action#getDescription()
-	 * @see #getAction()
+	 * @see conversationalGame.ItemAction#getDescription()
+	 * @see #getItemAction()
 	 * @generated
 	 */
-	EAttribute getAction_Description();
+	EAttribute getItemAction_Description();
 
 	/**
-	 * Returns the meta object for the attribute '{@link conversationalGame.Action#getMessage <em>Message</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Message</em>'.
-	 * @see conversationalGame.Action#getMessage()
-	 * @see #getAction()
-	 * @generated
-	 */
-	EAttribute getAction_Message();
-
-	/**
-	 * Returns the meta object for the reference '{@link conversationalGame.Action#getConsequence <em>Consequence</em>}'.
+	 * Returns the meta object for the reference '{@link conversationalGame.ItemAction#getConsequence <em>Consequence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Consequence</em>'.
-	 * @see conversationalGame.Action#getConsequence()
-	 * @see #getAction()
+	 * @see conversationalGame.ItemAction#getConsequence()
+	 * @see #getItemAction()
 	 * @generated
 	 */
-	EReference getAction_Consequence();
+	EReference getItemAction_Consequence();
 
 	/**
-	 * Returns the meta object for the reference list '{@link conversationalGame.Action#getNpcs <em>Npcs</em>}'.
+	 * Returns the meta object for class '{@link conversationalGame.CharacterAction <em>Character Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Npcs</em>'.
-	 * @see conversationalGame.Action#getNpcs()
-	 * @see #getAction()
+	 * @return the meta object for class '<em>Character Action</em>'.
+	 * @see conversationalGame.CharacterAction
 	 * @generated
 	 */
-	EReference getAction_Npcs();
+	EClass getCharacterAction();
 
 	/**
-	 * Returns the meta object for the reference '{@link conversationalGame.Action#getPlayer <em>Player</em>}'.
+	 * Returns the meta object for the attribute '{@link conversationalGame.CharacterAction#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Player</em>'.
-	 * @see conversationalGame.Action#getPlayer()
-	 * @see #getAction()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see conversationalGame.CharacterAction#getName()
+	 * @see #getCharacterAction()
 	 * @generated
 	 */
-	EReference getAction_Player();
+	EAttribute getCharacterAction_Name();
 
 	/**
-	 * Returns the meta object for class '{@link conversationalGame.StatAction <em>Stat Action</em>}'.
+	 * Returns the meta object for the attribute '{@link conversationalGame.CharacterAction#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Stat Action</em>'.
-	 * @see conversationalGame.StatAction
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see conversationalGame.CharacterAction#getDescription()
+	 * @see #getCharacterAction()
 	 * @generated
 	 */
-	EClass getStatAction();
+	EAttribute getCharacterAction_Description();
 
 	/**
-	 * Returns the meta object for the attribute '{@link conversationalGame.StatAction#getValue <em>Value</em>}'.
+	 * Returns the meta object for the reference '{@link conversationalGame.CharacterAction#getConsequence <em>Consequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Consequence</em>'.
+	 * @see conversationalGame.CharacterAction#getConsequence()
+	 * @see #getCharacterAction()
+	 * @generated
+	 */
+	EReference getCharacterAction_Consequence();
+
+	/**
+	 * Returns the meta object for class '{@link conversationalGame.StatConsequence <em>Stat Consequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Stat Consequence</em>'.
+	 * @see conversationalGame.StatConsequence
+	 * @generated
+	 */
+	EClass getStatConsequence();
+
+	/**
+	 * Returns the meta object for the attribute '{@link conversationalGame.StatConsequence#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see conversationalGame.StatAction#getValue()
-	 * @see #getStatAction()
+	 * @see conversationalGame.StatConsequence#getValue()
+	 * @see #getStatConsequence()
 	 * @generated
 	 */
-	EAttribute getStatAction_Value();
+	EAttribute getStatConsequence_Value();
 
 	/**
-	 * Returns the meta object for the reference '{@link conversationalGame.StatAction#getStat <em>Stat</em>}'.
+	 * Returns the meta object for the reference '{@link conversationalGame.StatConsequence#getStat <em>Stat</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Stat</em>'.
-	 * @see conversationalGame.StatAction#getStat()
-	 * @see #getStatAction()
+	 * @see conversationalGame.StatConsequence#getStat()
+	 * @see #getStatConsequence()
 	 * @generated
 	 */
-	EReference getStatAction_Stat();
+	EReference getStatConsequence_Stat();
 
 	/**
-	 * Returns the meta object for class '{@link conversationalGame.ActionNewItem <em>Action New Item</em>}'.
+	 * Returns the meta object for the reference '{@link conversationalGame.StatConsequence#getCharacter <em>Character</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Action New Item</em>'.
-	 * @see conversationalGame.ActionNewItem
+	 * @return the meta object for the reference '<em>Character</em>'.
+	 * @see conversationalGame.StatConsequence#getCharacter()
+	 * @see #getStatConsequence()
 	 * @generated
 	 */
-	EClass getActionNewItem();
+	EReference getStatConsequence_Character();
 
 	/**
-	 * Returns the meta object for the reference list '{@link conversationalGame.ActionNewItem#getNewItems <em>New Items</em>}'.
+	 * Returns the meta object for class '{@link conversationalGame.ConsequenceGiveItem <em>Consequence Give Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Consequence Give Item</em>'.
+	 * @see conversationalGame.ConsequenceGiveItem
+	 * @generated
+	 */
+	EClass getConsequenceGiveItem();
+
+	/**
+	 * Returns the meta object for the reference list '{@link conversationalGame.ConsequenceGiveItem#getNewItems <em>New Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>New Items</em>'.
-	 * @see conversationalGame.ActionNewItem#getNewItems()
-	 * @see #getActionNewItem()
+	 * @see conversationalGame.ConsequenceGiveItem#getNewItems()
+	 * @see #getConsequenceGiveItem()
 	 * @generated
 	 */
-	EReference getActionNewItem_NewItems();
+	EReference getConsequenceGiveItem_NewItems();
 
 	/**
-	 * Returns the meta object for class '{@link conversationalGame.RoomAction <em>Room Action</em>}'.
+	 * Returns the meta object for the reference '{@link conversationalGame.ConsequenceGiveItem#getCharacter <em>Character</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Room Action</em>'.
-	 * @see conversationalGame.RoomAction
+	 * @return the meta object for the reference '<em>Character</em>'.
+	 * @see conversationalGame.ConsequenceGiveItem#getCharacter()
+	 * @see #getConsequenceGiveItem()
 	 * @generated
 	 */
-	EClass getRoomAction();
+	EReference getConsequenceGiveItem_Character();
 
 	/**
-	 * Returns the meta object for the reference '{@link conversationalGame.RoomAction#getDoor <em>Door</em>}'.
+	 * Returns the meta object for class '{@link conversationalGame.ConsequenceSpawnItem <em>Consequence Spawn Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Consequence Spawn Item</em>'.
+	 * @see conversationalGame.ConsequenceSpawnItem
+	 * @generated
+	 */
+	EClass getConsequenceSpawnItem();
+
+	/**
+	 * Returns the meta object for the reference list '{@link conversationalGame.ConsequenceSpawnItem#getNewItems <em>New Items</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>New Items</em>'.
+	 * @see conversationalGame.ConsequenceSpawnItem#getNewItems()
+	 * @see #getConsequenceSpawnItem()
+	 * @generated
+	 */
+	EReference getConsequenceSpawnItem_NewItems();
+
+	/**
+	 * Returns the meta object for the reference '{@link conversationalGame.ConsequenceSpawnItem#getRoom <em>Room</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Room</em>'.
+	 * @see conversationalGame.ConsequenceSpawnItem#getRoom()
+	 * @see #getConsequenceSpawnItem()
+	 * @generated
+	 */
+	EReference getConsequenceSpawnItem_Room();
+
+	/**
+	 * Returns the meta object for class '{@link conversationalGame.RoomConsequence <em>Room Consequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Room Consequence</em>'.
+	 * @see conversationalGame.RoomConsequence
+	 * @generated
+	 */
+	EClass getRoomConsequence();
+
+	/**
+	 * Returns the meta object for the reference '{@link conversationalGame.RoomConsequence#getDoor <em>Door</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Door</em>'.
-	 * @see conversationalGame.RoomAction#getDoor()
-	 * @see #getRoomAction()
+	 * @see conversationalGame.RoomConsequence#getDoor()
+	 * @see #getRoomConsequence()
 	 * @generated
 	 */
-	EReference getRoomAction_Door();
+	EReference getRoomConsequence_Door();
 
 	/**
 	 * Returns the meta object for class '{@link conversationalGame.Door <em>Door</em>}'.
@@ -2065,36 +2236,36 @@ public interface ConversationalGamePackage extends EPackage {
 	EOperation getDoor__IdUniqueDoor__DiagnosticChain_Map();
 
 	/**
-	 * Returns the meta object for class '{@link conversationalGame.AskAction <em>Ask Action</em>}'.
+	 * Returns the meta object for class '{@link conversationalGame.AnswerConsequence <em>Answer Consequence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ask Action</em>'.
-	 * @see conversationalGame.AskAction
+	 * @return the meta object for class '<em>Answer Consequence</em>'.
+	 * @see conversationalGame.AnswerConsequence
 	 * @generated
 	 */
-	EClass getAskAction();
+	EClass getAnswerConsequence();
 
 	/**
-	 * Returns the meta object for the attribute '{@link conversationalGame.AskAction#getQuestion <em>Question</em>}'.
+	 * Returns the meta object for the attribute '{@link conversationalGame.AnswerConsequence#getQuestion <em>Question</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Question</em>'.
-	 * @see conversationalGame.AskAction#getQuestion()
-	 * @see #getAskAction()
+	 * @see conversationalGame.AnswerConsequence#getQuestion()
+	 * @see #getAnswerConsequence()
 	 * @generated
 	 */
-	EAttribute getAskAction_Question();
+	EAttribute getAnswerConsequence_Question();
 
 	/**
-	 * Returns the meta object for the attribute '{@link conversationalGame.AskAction#getAnswer <em>Answer</em>}'.
+	 * Returns the meta object for the attribute '{@link conversationalGame.AnswerConsequence#getAnswer <em>Answer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Answer</em>'.
-	 * @see conversationalGame.AskAction#getAnswer()
-	 * @see #getAskAction()
+	 * @see conversationalGame.AnswerConsequence#getAnswer()
+	 * @see #getAnswerConsequence()
 	 * @generated
 	 */
-	EAttribute getAskAction_Answer();
+	EAttribute getAnswerConsequence_Answer();
 
 	/**
 	 * Returns the meta object for class '{@link conversationalGame.Stat <em>Stat</em>}'.
@@ -2161,17 +2332,6 @@ public interface ConversationalGamePackage extends EPackage {
 	EAttribute getTrigger_Id();
 
 	/**
-	 * Returns the meta object for the attribute '{@link conversationalGame.Trigger#getMessage <em>Message</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Message</em>'.
-	 * @see conversationalGame.Trigger#getMessage()
-	 * @see #getTrigger()
-	 * @generated
-	 */
-	EAttribute getTrigger_Message();
-
-	/**
 	 * Returns the meta object for the attribute '{@link conversationalGame.Trigger#isEndGame <em>End Game</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2181,6 +2341,17 @@ public interface ConversationalGamePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTrigger_EndGame();
+
+	/**
+	 * Returns the meta object for the reference list '{@link conversationalGame.Trigger#getConsequences <em>Consequences</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Consequences</em>'.
+	 * @see conversationalGame.Trigger#getConsequences()
+	 * @see #getTrigger()
+	 * @generated
+	 */
+	EReference getTrigger_Consequences();
 
 	/**
 	 * Returns the meta object for the '{@link conversationalGame.Trigger#idUniqueDoor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Id Unique Door</em>}' operation.
@@ -2277,25 +2448,58 @@ public interface ConversationalGamePackage extends EPackage {
 	EReference getPlayerTrigger_Player();
 
 	/**
-	 * Returns the meta object for class '{@link conversationalGame.ActionTrigger <em>Action Trigger</em>}'.
+	 * Returns the meta object for class '{@link conversationalGame.Consequence <em>Consequence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Action Trigger</em>'.
-	 * @see conversationalGame.ActionTrigger
+	 * @return the meta object for class '<em>Consequence</em>'.
+	 * @see conversationalGame.Consequence
 	 * @generated
 	 */
-	EClass getActionTrigger();
+	EClass getConsequence();
 
 	/**
-	 * Returns the meta object for the reference '{@link conversationalGame.ActionTrigger#getAction <em>Action</em>}'.
+	 * Returns the meta object for the attribute '{@link conversationalGame.Consequence#getMessage <em>Message</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Action</em>'.
-	 * @see conversationalGame.ActionTrigger#getAction()
-	 * @see #getActionTrigger()
+	 * @return the meta object for the attribute '<em>Message</em>'.
+	 * @see conversationalGame.Consequence#getMessage()
+	 * @see #getConsequence()
 	 * @generated
 	 */
-	EReference getActionTrigger_Action();
+	EAttribute getConsequence_Message();
+
+	/**
+	 * Returns the meta object for the reference '{@link conversationalGame.Consequence#getConsequence <em>Consequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Consequence</em>'.
+	 * @see conversationalGame.Consequence#getConsequence()
+	 * @see #getConsequence()
+	 * @generated
+	 */
+	EReference getConsequence_Consequence();
+
+	/**
+	 * Returns the meta object for the reference '{@link conversationalGame.Consequence#getItemAction <em>Item Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Item Action</em>'.
+	 * @see conversationalGame.Consequence#getItemAction()
+	 * @see #getConsequence()
+	 * @generated
+	 */
+	EReference getConsequence_ItemAction();
+
+	/**
+	 * Returns the meta object for the reference '{@link conversationalGame.Consequence#getCharacterAction <em>Character Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Character Action</em>'.
+	 * @see conversationalGame.Consequence#getCharacterAction()
+	 * @see #getConsequence()
+	 * @generated
+	 */
+	EReference getConsequence_CharacterAction();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2363,6 +2567,48 @@ public interface ConversationalGamePackage extends EPackage {
 		EReference GAME__TRIGGER_LIST = eINSTANCE.getGame_TriggerList();
 
 		/**
+		 * The meta object literal for the '{@link conversationalGame.impl.CharacterImpl <em>Character</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see conversationalGame.impl.CharacterImpl
+		 * @see conversationalGame.impl.ConversationalGamePackageImpl#getCharacter()
+		 * @generated
+		 */
+		EClass CHARACTER = eINSTANCE.getCharacter();
+
+		/**
+		 * The meta object literal for the '<em><b>Inventory</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CHARACTER__INVENTORY = eINSTANCE.getCharacter_Inventory();
+
+		/**
+		 * The meta object literal for the '<em><b>Stats</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CHARACTER__STATS = eINSTANCE.getCharacter_Stats();
+
+		/**
+		 * The meta object literal for the '<em><b>Dead</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHARACTER__DEAD = eINSTANCE.getCharacter_Dead();
+
+		/**
+		 * The meta object literal for the '<em><b>Actions</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CHARACTER__ACTIONS = eINSTANCE.getCharacter_Actions();
+
+		/**
 		 * The meta object literal for the '{@link conversationalGame.impl.PlayerImpl <em>Player</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2373,36 +2619,12 @@ public interface ConversationalGamePackage extends EPackage {
 		EClass PLAYER = eINSTANCE.getPlayer();
 
 		/**
-		 * The meta object literal for the '<em><b>Inventory</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PLAYER__INVENTORY = eINSTANCE.getPlayer_Inventory();
-
-		/**
 		 * The meta object literal for the '<em><b>Current Room</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference PLAYER__CURRENT_ROOM = eINSTANCE.getPlayer_CurrentRoom();
-
-		/**
-		 * The meta object literal for the '<em><b>Stats</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PLAYER__STATS = eINSTANCE.getPlayer_Stats();
-
-		/**
-		 * The meta object literal for the '<em><b>Dead</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PLAYER__DEAD = eINSTANCE.getPlayer_Dead();
 
 		/**
 		 * The meta object literal for the '{@link conversationalGame.impl.RoomImpl <em>Room</em>}' class.
@@ -2521,36 +2743,12 @@ public interface ConversationalGamePackage extends EPackage {
 		EAttribute NPC__NAME = eINSTANCE.getNpc_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Greeting</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>First Encounter Trigger</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NPC__GREETING = eINSTANCE.getNpc_Greeting();
-
-		/**
-		 * The meta object literal for the '<em><b>Inventory</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NPC__INVENTORY = eINSTANCE.getNpc_Inventory();
-
-		/**
-		 * The meta object literal for the '<em><b>Dead</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NPC__DEAD = eINSTANCE.getNpc_Dead();
-
-		/**
-		 * The meta object literal for the '<em><b>Stats</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NPC__STATS = eINSTANCE.getNpc_Stats();
+		EReference NPC__FIRST_ENCOUNTER_TRIGGER = eINSTANCE.getNpc_FirstEncounterTrigger();
 
 		/**
 		 * The meta object literal for the '{@link conversationalGame.impl.ItemImpl <em>Item</em>}' class.
@@ -2595,14 +2793,14 @@ public interface ConversationalGamePackage extends EPackage {
 		EOperation ITEM___ID_UNIQUE_ITEM__DIAGNOSTICCHAIN_MAP = eINSTANCE.getItem__IdUniqueItem__DiagnosticChain_Map();
 
 		/**
-		 * The meta object literal for the '{@link conversationalGame.impl.ActionImpl <em>Action</em>}' class.
+		 * The meta object literal for the '{@link conversationalGame.impl.ItemActionImpl <em>Item Action</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see conversationalGame.impl.ActionImpl
-		 * @see conversationalGame.impl.ConversationalGamePackageImpl#getAction()
+		 * @see conversationalGame.impl.ItemActionImpl
+		 * @see conversationalGame.impl.ConversationalGamePackageImpl#getItemAction()
 		 * @generated
 		 */
-		EClass ACTION = eINSTANCE.getAction();
+		EClass ITEM_ACTION = eINSTANCE.getItemAction();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -2610,7 +2808,7 @@ public interface ConversationalGamePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ACTION__NAME = eINSTANCE.getAction_Name();
+		EAttribute ITEM_ACTION__NAME = eINSTANCE.getItemAction_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -2618,15 +2816,7 @@ public interface ConversationalGamePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ACTION__DESCRIPTION = eINSTANCE.getAction_Description();
-
-		/**
-		 * The meta object literal for the '<em><b>Message</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTION__MESSAGE = eINSTANCE.getAction_Message();
+		EAttribute ITEM_ACTION__DESCRIPTION = eINSTANCE.getItemAction_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Consequence</b></em>' reference feature.
@@ -2634,33 +2824,51 @@ public interface ConversationalGamePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ACTION__CONSEQUENCE = eINSTANCE.getAction_Consequence();
+		EReference ITEM_ACTION__CONSEQUENCE = eINSTANCE.getItemAction_Consequence();
 
 		/**
-		 * The meta object literal for the '<em><b>Npcs</b></em>' reference list feature.
+		 * The meta object literal for the '{@link conversationalGame.impl.CharacterActionImpl <em>Character Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see conversationalGame.impl.CharacterActionImpl
+		 * @see conversationalGame.impl.ConversationalGamePackageImpl#getCharacterAction()
+		 * @generated
+		 */
+		EClass CHARACTER_ACTION = eINSTANCE.getCharacterAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ACTION__NPCS = eINSTANCE.getAction_Npcs();
+		EAttribute CHARACTER_ACTION__NAME = eINSTANCE.getCharacterAction_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Player</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ACTION__PLAYER = eINSTANCE.getAction_Player();
+		EAttribute CHARACTER_ACTION__DESCRIPTION = eINSTANCE.getCharacterAction_Description();
 
 		/**
-		 * The meta object literal for the '{@link conversationalGame.impl.StatActionImpl <em>Stat Action</em>}' class.
+		 * The meta object literal for the '<em><b>Consequence</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see conversationalGame.impl.StatActionImpl
-		 * @see conversationalGame.impl.ConversationalGamePackageImpl#getStatAction()
 		 * @generated
 		 */
-		EClass STAT_ACTION = eINSTANCE.getStatAction();
+		EReference CHARACTER_ACTION__CONSEQUENCE = eINSTANCE.getCharacterAction_Consequence();
+
+		/**
+		 * The meta object literal for the '{@link conversationalGame.impl.StatConsequenceImpl <em>Stat Consequence</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see conversationalGame.impl.StatConsequenceImpl
+		 * @see conversationalGame.impl.ConversationalGamePackageImpl#getStatConsequence()
+		 * @generated
+		 */
+		EClass STAT_CONSEQUENCE = eINSTANCE.getStatConsequence();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -2668,7 +2876,7 @@ public interface ConversationalGamePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute STAT_ACTION__VALUE = eINSTANCE.getStatAction_Value();
+		EAttribute STAT_CONSEQUENCE__VALUE = eINSTANCE.getStatConsequence_Value();
 
 		/**
 		 * The meta object literal for the '<em><b>Stat</b></em>' reference feature.
@@ -2676,17 +2884,25 @@ public interface ConversationalGamePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STAT_ACTION__STAT = eINSTANCE.getStatAction_Stat();
+		EReference STAT_CONSEQUENCE__STAT = eINSTANCE.getStatConsequence_Stat();
 
 		/**
-		 * The meta object literal for the '{@link conversationalGame.impl.ActionNewItemImpl <em>Action New Item</em>}' class.
+		 * The meta object literal for the '<em><b>Character</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see conversationalGame.impl.ActionNewItemImpl
-		 * @see conversationalGame.impl.ConversationalGamePackageImpl#getActionNewItem()
 		 * @generated
 		 */
-		EClass ACTION_NEW_ITEM = eINSTANCE.getActionNewItem();
+		EReference STAT_CONSEQUENCE__CHARACTER = eINSTANCE.getStatConsequence_Character();
+
+		/**
+		 * The meta object literal for the '{@link conversationalGame.impl.ConsequenceGiveItemImpl <em>Consequence Give Item</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see conversationalGame.impl.ConsequenceGiveItemImpl
+		 * @see conversationalGame.impl.ConversationalGamePackageImpl#getConsequenceGiveItem()
+		 * @generated
+		 */
+		EClass CONSEQUENCE_GIVE_ITEM = eINSTANCE.getConsequenceGiveItem();
 
 		/**
 		 * The meta object literal for the '<em><b>New Items</b></em>' reference list feature.
@@ -2694,17 +2910,51 @@ public interface ConversationalGamePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ACTION_NEW_ITEM__NEW_ITEMS = eINSTANCE.getActionNewItem_NewItems();
+		EReference CONSEQUENCE_GIVE_ITEM__NEW_ITEMS = eINSTANCE.getConsequenceGiveItem_NewItems();
 
 		/**
-		 * The meta object literal for the '{@link conversationalGame.impl.RoomActionImpl <em>Room Action</em>}' class.
+		 * The meta object literal for the '<em><b>Character</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see conversationalGame.impl.RoomActionImpl
-		 * @see conversationalGame.impl.ConversationalGamePackageImpl#getRoomAction()
 		 * @generated
 		 */
-		EClass ROOM_ACTION = eINSTANCE.getRoomAction();
+		EReference CONSEQUENCE_GIVE_ITEM__CHARACTER = eINSTANCE.getConsequenceGiveItem_Character();
+
+		/**
+		 * The meta object literal for the '{@link conversationalGame.impl.ConsequenceSpawnItemImpl <em>Consequence Spawn Item</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see conversationalGame.impl.ConsequenceSpawnItemImpl
+		 * @see conversationalGame.impl.ConversationalGamePackageImpl#getConsequenceSpawnItem()
+		 * @generated
+		 */
+		EClass CONSEQUENCE_SPAWN_ITEM = eINSTANCE.getConsequenceSpawnItem();
+
+		/**
+		 * The meta object literal for the '<em><b>New Items</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONSEQUENCE_SPAWN_ITEM__NEW_ITEMS = eINSTANCE.getConsequenceSpawnItem_NewItems();
+
+		/**
+		 * The meta object literal for the '<em><b>Room</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONSEQUENCE_SPAWN_ITEM__ROOM = eINSTANCE.getConsequenceSpawnItem_Room();
+
+		/**
+		 * The meta object literal for the '{@link conversationalGame.impl.RoomConsequenceImpl <em>Room Consequence</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see conversationalGame.impl.RoomConsequenceImpl
+		 * @see conversationalGame.impl.ConversationalGamePackageImpl#getRoomConsequence()
+		 * @generated
+		 */
+		EClass ROOM_CONSEQUENCE = eINSTANCE.getRoomConsequence();
 
 		/**
 		 * The meta object literal for the '<em><b>Door</b></em>' reference feature.
@@ -2712,7 +2962,7 @@ public interface ConversationalGamePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ROOM_ACTION__DOOR = eINSTANCE.getRoomAction_Door();
+		EReference ROOM_CONSEQUENCE__DOOR = eINSTANCE.getRoomConsequence_Door();
 
 		/**
 		 * The meta object literal for the '{@link conversationalGame.impl.DoorImpl <em>Door</em>}' class.
@@ -2757,14 +3007,14 @@ public interface ConversationalGamePackage extends EPackage {
 		EOperation DOOR___ID_UNIQUE_DOOR__DIAGNOSTICCHAIN_MAP = eINSTANCE.getDoor__IdUniqueDoor__DiagnosticChain_Map();
 
 		/**
-		 * The meta object literal for the '{@link conversationalGame.impl.AskActionImpl <em>Ask Action</em>}' class.
+		 * The meta object literal for the '{@link conversationalGame.impl.AnswerConsequenceImpl <em>Answer Consequence</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see conversationalGame.impl.AskActionImpl
-		 * @see conversationalGame.impl.ConversationalGamePackageImpl#getAskAction()
+		 * @see conversationalGame.impl.AnswerConsequenceImpl
+		 * @see conversationalGame.impl.ConversationalGamePackageImpl#getAnswerConsequence()
 		 * @generated
 		 */
-		EClass ASK_ACTION = eINSTANCE.getAskAction();
+		EClass ANSWER_CONSEQUENCE = eINSTANCE.getAnswerConsequence();
 
 		/**
 		 * The meta object literal for the '<em><b>Question</b></em>' attribute feature.
@@ -2772,7 +3022,7 @@ public interface ConversationalGamePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ASK_ACTION__QUESTION = eINSTANCE.getAskAction_Question();
+		EAttribute ANSWER_CONSEQUENCE__QUESTION = eINSTANCE.getAnswerConsequence_Question();
 
 		/**
 		 * The meta object literal for the '<em><b>Answer</b></em>' attribute feature.
@@ -2780,7 +3030,7 @@ public interface ConversationalGamePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ASK_ACTION__ANSWER = eINSTANCE.getAskAction_Answer();
+		EAttribute ANSWER_CONSEQUENCE__ANSWER = eINSTANCE.getAnswerConsequence_Answer();
 
 		/**
 		 * The meta object literal for the '{@link conversationalGame.impl.StatImpl <em>Stat</em>}' class.
@@ -2835,20 +3085,20 @@ public interface ConversationalGamePackage extends EPackage {
 		EAttribute TRIGGER__ID = eINSTANCE.getTrigger_Id();
 
 		/**
-		 * The meta object literal for the '<em><b>Message</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TRIGGER__MESSAGE = eINSTANCE.getTrigger_Message();
-
-		/**
 		 * The meta object literal for the '<em><b>End Game</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute TRIGGER__END_GAME = eINSTANCE.getTrigger_EndGame();
+
+		/**
+		 * The meta object literal for the '<em><b>Consequences</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRIGGER__CONSEQUENCES = eINSTANCE.getTrigger_Consequences();
 
 		/**
 		 * The meta object literal for the '<em><b>Id Unique Door</b></em>' operation.
@@ -2931,22 +3181,46 @@ public interface ConversationalGamePackage extends EPackage {
 		EReference PLAYER_TRIGGER__PLAYER = eINSTANCE.getPlayerTrigger_Player();
 
 		/**
-		 * The meta object literal for the '{@link conversationalGame.impl.ActionTriggerImpl <em>Action Trigger</em>}' class.
+		 * The meta object literal for the '{@link conversationalGame.impl.ConsequenceImpl <em>Consequence</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see conversationalGame.impl.ActionTriggerImpl
-		 * @see conversationalGame.impl.ConversationalGamePackageImpl#getActionTrigger()
+		 * @see conversationalGame.impl.ConsequenceImpl
+		 * @see conversationalGame.impl.ConversationalGamePackageImpl#getConsequence()
 		 * @generated
 		 */
-		EClass ACTION_TRIGGER = eINSTANCE.getActionTrigger();
+		EClass CONSEQUENCE = eINSTANCE.getConsequence();
 
 		/**
-		 * The meta object literal for the '<em><b>Action</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Message</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ACTION_TRIGGER__ACTION = eINSTANCE.getActionTrigger_Action();
+		EAttribute CONSEQUENCE__MESSAGE = eINSTANCE.getConsequence_Message();
+
+		/**
+		 * The meta object literal for the '<em><b>Consequence</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONSEQUENCE__CONSEQUENCE = eINSTANCE.getConsequence_Consequence();
+
+		/**
+		 * The meta object literal for the '<em><b>Item Action</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONSEQUENCE__ITEM_ACTION = eINSTANCE.getConsequence_ItemAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Character Action</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONSEQUENCE__CHARACTER_ACTION = eINSTANCE.getConsequence_CharacterAction();
 
 	}
 

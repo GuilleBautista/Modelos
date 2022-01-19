@@ -2,12 +2,12 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
   <viewpoint:DAnalysis uid="_jTtN0HRcEeyXOYHFG1oTiA" selectedViews="_jVNpsHRcEeyXOYHFG1oTiA" version="14.5.1.202106111100">
     <semanticResources>var.ecore</semanticResources>
-    <semanticResources>dsl.ecore</semanticResources>
     <semanticResources>../build.properties</semanticResources>
     <semanticResources>../plugin.properties</semanticResources>
     <semanticResources>../plugin.xml</semanticResources>
     <semanticResources>simpleGame.xmi</semanticResources>
     <semanticResources>dsl.genmodel</semanticResources>
+    <semanticResources>dsl.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_jVNpsHRcEeyXOYHFG1oTiA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_jVgkpXRcEeyXOYHFG1oTiA" name="var" repPath="#_jVgkoHRcEeyXOYHFG1oTiA">
@@ -1894,8 +1894,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_U7-iAHbHEeyuNeZq6fd9wg" name="Dead : EBoolean = false" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="dsl.ecore#//Player/Dead"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="dsl.ecore#//Player/Dead"/>
+        <target xmi:type="ecore:EAttribute" href="dsl.ecore#//Character/Dead"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="dsl.ecore#//Character/Dead"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_U7_JEXbHEeyuNeZq6fd9wg" labelAlignment="LEFT" description="_U7_JEHbHEeyuNeZq6fd9wg">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
@@ -1945,8 +1945,8 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_U8CzcHbHEeyuNeZq6fd9wg" name="Dead : EBoolean = false" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="dsl.ecore#//Npc/Dead"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="dsl.ecore#//Npc/Dead"/>
+        <target xmi:type="ecore:EAttribute" href="dsl.ecore#//Character/Dead"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="dsl.ecore#//Character/Dead"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_U8DagHbHEeyuNeZq6fd9wg" labelAlignment="LEFT" description="_U7_JEHbHEeyuNeZq6fd9wg">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
@@ -2241,8 +2241,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_U8ZYwHbHEeyuNeZq6fd9wg" name="[0..*] Inventory" sourceNode="_U2uOkHbHEeyuNeZq6fd9wg" targetNode="_U5-98HbHEeyuNeZq6fd9wg">
-      <target xmi:type="ecore:EReference" href="dsl.ecore#//Player/Inventory"/>
-      <semanticElements xmi:type="ecore:EReference" href="dsl.ecore#//Player/Inventory"/>
+      <target xmi:type="ecore:EReference" href="dsl.ecore#//Character/Inventory"/>
+      <semanticElements xmi:type="ecore:EReference" href="dsl.ecore#//Character/Inventory"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_ooSUk3bHEeyuNeZq6fd9wg" description="_ooSUkHbHEeyuNeZq6fd9wg" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_ooSUlXbHEeyuNeZq6fd9wg" showIcon="false"/>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_ooSUlHbHEeyuNeZq6fd9wg" labelSize="6" showIcon="false" labelColor="39,76,114"/>
@@ -2264,8 +2264,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_U8Z_1nbHEeyuNeZq6fd9wg" name="[0..*] Stats" sourceNode="_U2uOkHbHEeyuNeZq6fd9wg" targetNode="_U7DU8XbHEeyuNeZq6fd9wg">
-      <target xmi:type="ecore:EReference" href="dsl.ecore#//Player/Stats"/>
-      <semanticElements xmi:type="ecore:EReference" href="dsl.ecore#//Player/Stats"/>
+      <target xmi:type="ecore:EReference" href="dsl.ecore#//Character/Stats"/>
+      <semanticElements xmi:type="ecore:EReference" href="dsl.ecore#//Character/Stats"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_2yX0vHbHEeyuNeZq6fd9wg" description="_ooSUkHbHEeyuNeZq6fd9wg" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_2yX0vnbHEeyuNeZq6fd9wg" showIcon="false"/>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_2yX0vXbHEeyuNeZq6fd9wg" labelSize="6" showIcon="false" labelColor="39,76,114"/>
@@ -2327,8 +2327,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_U8eRQ3bHEeyuNeZq6fd9wg" name="[0..*] Inventory" sourceNode="_U5-W4HbHEeyuNeZq6fd9wg" targetNode="_U5-98HbHEeyuNeZq6fd9wg">
-      <target xmi:type="ecore:EReference" href="dsl.ecore#//Npc/Inventory"/>
-      <semanticElements xmi:type="ecore:EReference" href="dsl.ecore#//Npc/Inventory"/>
+      <target xmi:type="ecore:EReference" href="dsl.ecore#//Character/Inventory"/>
+      <semanticElements xmi:type="ecore:EReference" href="dsl.ecore#//Character/Inventory"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_AmGYkHbIEeyuNeZq6fd9wg" description="_ooSUkHbHEeyuNeZq6fd9wg" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_AmGYknbIEeyuNeZq6fd9wg" showIcon="false"/>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_AmGYkXbIEeyuNeZq6fd9wg" labelSize="6" showIcon="false" labelColor="39,76,114"/>
@@ -2336,8 +2336,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_U8e4U3bHEeyuNeZq6fd9wg" name="[0..*] Stats" sourceNode="_U5-W4HbHEeyuNeZq6fd9wg" targetNode="_U7DU8XbHEeyuNeZq6fd9wg">
-      <target xmi:type="ecore:EReference" href="dsl.ecore#//Npc/Stats"/>
-      <semanticElements xmi:type="ecore:EReference" href="dsl.ecore#//Npc/Stats"/>
+      <target xmi:type="ecore:EReference" href="dsl.ecore#//Character/Stats"/>
+      <semanticElements xmi:type="ecore:EReference" href="dsl.ecore#//Character/Stats"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_-szUpnbHEeyuNeZq6fd9wg" description="_ooSUkHbHEeyuNeZq6fd9wg" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_-szUqHbHEeyuNeZq6fd9wg" showIcon="false"/>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_-szUp3bHEeyuNeZq6fd9wg" labelSize="6" showIcon="false" labelColor="39,76,114"/>
